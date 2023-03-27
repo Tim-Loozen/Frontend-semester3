@@ -25,6 +25,9 @@ import admin from "@/components/dashboard/admin/admin.vue";
 import route from "@/components/dashboard/routes/route.vue";
 import routesAll from "@/components/dashboard/routes/routes.vue";
 import addroute from "@/components/dashboard/routes/new-route.vue";
+import earnings from "@/components/dashboard/earnings/earnings.vue";
+import postCompanies from "@/components/dashboard/postCompanies/postCompanies.vue";
+import departs from "@/components/dashboard/departs/departs.vue";
 
 /*Departs*/
 
@@ -40,6 +43,9 @@ const routes = [
     {path: '/dashboard/route', component: route},
     {path: '/dashboard/routes', component: routesAll},
     {path: '/dashboard/settings', component: settings},
+    {path: '/dashboard/earnings', component: earnings},
+    {path: '/dashboard/post-companies', component: postCompanies},
+    {path: '/dashboard/departs', component: departs},
     {path: '/register', component: register },
     {path: '/dashboard', component: Dashboard }
 ];

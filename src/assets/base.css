@@ -61,12 +61,18 @@
 body{
   height: 100vh;
 }
-.header
-{
-  min-height: 40rem;
+.header, .contact {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+}
+.header{
+  min-height: 20rem;
+}
+.contact
+{
+  min-height: 40rem;
 }
 .btn-primary
 {
@@ -77,3 +83,17 @@ body{
 {
   background-color: #144698 !important;
 }
+img
+{
+  width: 100%;
+}
+/*.header .container*/
+/*{*/
+/*  height: auto;*/
+/*  padding: 2rem;*/
+/*  background-color: #292d33;*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  transform: translateY(-50%);*/
+/*}*/
+

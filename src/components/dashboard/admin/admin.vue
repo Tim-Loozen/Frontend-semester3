@@ -1,3 +1,6 @@
+<script setup>
+import menuDashboard from "@/components/dashboard/menu.vue";
+</script>
 <template>
   <section class="py-5">
     <div class="container">

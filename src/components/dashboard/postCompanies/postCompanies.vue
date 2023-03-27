@@ -1,19 +1,16 @@
 <script setup>
-import routes from './routes/routes.vue'
 import menuDashboard from "@/components/dashboard/menu.vue";
 </script>
-
 <template>
   <div class="container-fluid ">
-    <div class="row ">
-
+    <div class="row">
       <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
       </div>
-      <div class="col-10 px-3 py-5">
+      <div class="col-10 px-5 py-5">
         <div class="row py-1">
           <div class="col-6">
-            <h2>Dashboard</h2>
+            <h2>Post bedrijven</h2>
           </div>
           <div class="col-6 ">
             <div class="text-end">
@@ -21,18 +18,12 @@ import menuDashboard from "@/components/dashboard/menu.vue";
             </div>
           </div>
         </div>
-        <hr class="my-5">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-
-              </div>
-              <div class="card-body">
-
-              </div>
-            </div>
+        <hr>
+        <div class="card">
+          <div class="card-header text-white bg-primary--blue">
+            <p><b>Post bedrijven</b></p>
           </div>
+          <div class="card-body"></div>
         </div>
       </div>
     </div>
@@ -41,7 +32,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 
 <script>
 export default {
-  name: "main"
+  name: "postCompanies"
 }
 </script>
 

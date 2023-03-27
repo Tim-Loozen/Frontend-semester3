@@ -11,7 +11,8 @@
             <div class="row ">
               <div class="form-group col-md-6">
                 <label for="">Voornaam</label>
-                <input type="text" v-model="posts.firstname" name="firstname" class="form-control" id="voornaam" placeholder="">
+                <input type="text" v-model="posts.firstname" name="firstname" class="form-control" id="voornaam"
+                       placeholder="">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Achternaam</label>
@@ -80,8 +81,7 @@
 <script>
 
 import axios, {Axios} from "axios";
-import Vue from 'vue';
-Vue.use(Axios);
+
 export default {
   name: "register",
   data() {
@@ -102,11 +102,20 @@ export default {
   },
   methods: {
     postData(e) {
-      this.axios.post("http://fontys_semester3_api.test/create_post_office", [this.posts])
+
+
+      localStorage.setItem('token', JSON.stringify({  ticket: data }));
+      const token = localStorage.getItem("token");
+      axios.post("http://fontys_semester3_api.test/register", [this.posts], {
+        Authorization: 'Bearer ' + token,
+        'x-access-token': token
+      })
           .then((result) => {
+            console.log(token);
             console.log(result);
           })
           .catch((error) => {
+            console.log(token);
             console.log(error);
           })
       e.preventDefault();

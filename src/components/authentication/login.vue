@@ -16,7 +16,7 @@
               <label for="exampleInputPassword1">Wachtwoord</label>
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Wachtwoord">
             </div>
-            <button type="submit" class="btn btn-primary my-2">Login</button>
+            <a type="submit" href="/dashboard" class="btn btn-primary my-2">Login</a>
           </form>
         </div>
       </div>
