@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
               <label for="inputAddress">Adres</label>
-              <input v-model="posts.adres" type="text" class="form-control" id="inputAddress" placeholder="">
+              <input v-model="posts.address" type="text" class="form-control" id="inputAddress" placeholder="">
             </div>
             <div class="row">
               <div class="form-group col-md-6">
@@ -91,7 +91,7 @@ export default {
         lastname: null,
         email: null,
         password: null,
-        adres: null,
+        address: null,
         city: null,
         state: null,
         zipcode: null,
@@ -102,11 +102,20 @@ export default {
   },
   methods: {
     postData(e) {
+      // const token = localStorage.getItem("token");
 
-
-      localStorage.setItem('token', JSON.stringify({  ticket: data }));
-      const token = localStorage.getItem("token");
-      axios.post("http://fontys_semester3_api.test/register", [this.posts], {
+      axios.post("http://fontys_semester3_api.test/register", {
+        firstname: this.posts.firstname,
+        lastname: this.posts.lastname,
+        email: this.posts.email,
+        password: this.pots.password,
+        address: this.posts.address,
+        city: this.posts.city,
+        state: this.posts.state,
+        zipcode: this.posts.zipcode,
+        company: this.posts.company,
+        number: this.post.number
+      }, {
         Authorization: 'Bearer ' + token,
         'x-access-token': token
       })
