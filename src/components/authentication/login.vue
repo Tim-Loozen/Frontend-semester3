@@ -7,16 +7,16 @@
             <h1>Login</h1>
             <hr>
           </div>
-          <form>
+          <form @submit="postData" method="POST">
             <div class="form-group">
               <label for="exampleInputEmail1">E-mail adres</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+              <input type="email" v-model="posts.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Wachtwoord</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Wachtwoord">
+              <input type="password" v-model="posts.password" class="form-control" id="exampleInputPassword1" placeholder="Wachtwoord">
             </div>
-            <a type="submit" href="/dashboard" class="btn btn-primary my-2">Login</a>
+            <button type="submit" class="btn btn-primary my-2">Login</button>
           </form>
         </div>
       </div>
@@ -25,11 +25,39 @@
 </template>
 
 <script>
+
+import axios, {Axios} from "axios";
 export default {
-  name: "login"
+  name: "login",
+  data() {
+    return {
+      posts: {
+        email: null,
+        password: null,
+      }
+    }
+  },
+  methods: {
+    postData(e) {
+      e.preventDefault();
+      axios.post("http://fontys_semester3_api.test/login", {
+        email: this.posts.email,
+        password: this.posts.password,
+      }).then((result) => {
+        console.log(result.data[0]);
+        localStorage.setItem("token", result.data[0])
+        window.location.href = '/dashboard';
+
+      }).catch((error) => {
+        console.log(error);
+      })
+
+    }
+  }
+
+
 }
 </script>
-
 <style scoped>
 
 </style>

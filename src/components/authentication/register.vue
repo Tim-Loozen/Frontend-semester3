@@ -57,7 +57,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="inputKvk">kvk nummer</label>
-                <input v-model="posts.number" type="text" class="form-control" id="inputKvk" placeholder="">
+                <input v-model="posts.kvk" type="text" class="form-control" id="inputKvk" placeholder="">
               </div>
             </div>
 
@@ -81,7 +81,6 @@
 <script>
 
 import axios, {Axios} from "axios";
-
 export default {
   name: "register",
   data() {
@@ -96,42 +95,35 @@ export default {
         state: null,
         zipcode: null,
         company: null,
-        number: null
+        kvk: null
       }
     }
   },
   methods: {
     postData(e) {
-      // const token = localStorage.getItem("token");
+      e.preventDefault();
 
       axios.post("http://fontys_semester3_api.test/register", {
         firstname: this.posts.firstname,
         lastname: this.posts.lastname,
         email: this.posts.email,
-        password: this.pots.password,
+        password: this.posts.password,
         address: this.posts.address,
         city: this.posts.city,
         state: this.posts.state,
         zipcode: this.posts.zipcode,
         company: this.posts.company,
-        number: this.post.number
-      }, {
-        Authorization: 'Bearer ' + token,
-        'x-access-token': token
+        kvk: this.posts.kvk,
+
+      }).then((result) => {
+        console.log(result);
+      }).catch((error) => {
+        console.log(error);
       })
-          .then((result) => {
-            console.log(token);
-            console.log(result);
-          })
-          .catch((error) => {
-            console.log(token);
-            console.log(error);
-          })
-      e.preventDefault();
+
     }
   }
 }
-
 </script>
 
 <style scoped>
