@@ -1,4 +1,8 @@
+<script setup>
+import Token from "@/components/authentication/Token.vue";
+</script>
 <template>
+  <Token></Token>
 <section class="py-5">
   <div class="container">
     <div class="row">
