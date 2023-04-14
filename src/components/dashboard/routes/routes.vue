@@ -5,7 +5,6 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 <template>
   <div class="container-fluid ">
     <div class="row">
-
       <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
       </div>
@@ -102,10 +101,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
         </div>
       </div>
     </div>
-
-
   </div>
-
 </template>
 
 <script>

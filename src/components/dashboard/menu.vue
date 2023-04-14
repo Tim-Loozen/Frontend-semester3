@@ -12,6 +12,9 @@
       <li  class="nav-item border-bottom">
         <a class="nav-link" href="/dashboard/earnings">Opbrengsten</a>
       </li>
+      <li  class="nav-item border-bottom">
+        <a class="nav-link" href="/dashboard/statistics">Statistieken</a>
+      </li>
     </ul>
 </template>
 
