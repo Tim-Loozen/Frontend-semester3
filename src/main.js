@@ -26,12 +26,13 @@ import route from "@/components/dashboard/routes/route.vue";
 import routesAll from "@/components/dashboard/routes/routes.vue";
 import addroute from "@/components/dashboard/routes/new-route.vue";
 import earnings from "@/components/dashboard/earnings/earnings.vue";
-import postCompanies from "@/components/dashboard/postCompanies/postCompanies.vue";
 import departs from "@/components/dashboard/departs/departs.vue";
 
 /*Departs*/
 
-
+/*Post office */
+import postCompanies from "@/components/dashboard/postCompanies/postCompanies.vue";
+import createPostCompanies from "@/components/dashboard/postCompanies/create.vue";
 
 
 
@@ -45,6 +46,7 @@ const routes = [
     {path: '/dashboard/settings', component: settings},
     {path: '/dashboard/earnings', component: earnings},
     {path: '/dashboard/post-companies', component: postCompanies},
+    {path: '/dashboard/post-companies/create', component: createPostCompanies},
     {path: '/dashboard/departs', component: departs},
     {path: '/register', component: register },
     {path: '/dashboard', component: Dashboard }

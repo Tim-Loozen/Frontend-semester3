@@ -23,9 +23,15 @@ import Token from "@/components/authentication/Token.vue";
         <hr>
         <div class="card">
           <div class="card-header text-white bg-primary--blue">
-            <p><b>Post bedrijven</b></p>
+            <p><b>Post bedrijven</b><a type="button" href="/dashboard/post-companies/create"
+                                       class="btn float-end btn-success">New Postoffice</a></p>
           </div>
-          <div class="card-body"></div>
+          <div class="card-body" id="app" v-for="data in results">
+            <p>
+              {{data}}
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -33,9 +39,25 @@ import Token from "@/components/authentication/Token.vue";
 </template>
 
 <script>
+import axios, {Axios} from "axios";
+import {createApp} from "vue";
+
 export default {
-  name: "postCompanies"
+  name: "postCompanies",
+  data() {
+    return {
+      results: []
+    }
+  },
+  created() {
+    axios.get(`http://fontys_semester3_api.test/post_office`).then(response => {
+      this.results = response.data
+      console.log(this.results)
+    })
+  }
 }
+
+
 </script>
 
 <style scoped>

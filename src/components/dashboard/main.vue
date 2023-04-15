@@ -42,11 +42,7 @@ import Token from "@/components/authentication/Token.vue";
   </div>
 </template>
 
-<script>
-export default {
-  name: "main"
-}
-</script>
+
 
 <style scoped>
 
