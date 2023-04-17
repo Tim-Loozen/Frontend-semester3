@@ -27,7 +27,7 @@ import routesAll from "@/components/dashboard/routes/routes.vue";
 import routeCreates from "@/components/dashboard/routes/RoutesCreate.vue";
 import earnings from "@/components/dashboard/earnings/earnings.vue";
 import statistics from "@/components/dashboard/statistics/statistics.vue";
-import departs from "@/components/dashboard/departs/departs.vue";
+
 
 /*Departs*/
 
