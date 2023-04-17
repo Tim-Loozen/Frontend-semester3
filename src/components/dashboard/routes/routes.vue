@@ -39,62 +39,19 @@ import Token from "@/components/authentication/Token.vue";
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Afstand</th>
+                <th scope="col">startpunt</th>
+                <th scope="col">eindpunt</th>
                 <th scope="col">Opbrengst</th>
-                <th scope="col">Wijk</th>
                 <th></th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>2.0km</td>
-                <td>50,-</td>
-                <td>Strijp</td>
-                <td>
-                  <button type="button" class="btn btn-success">Bekijk route</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>2.0km</td>
-                <td>50,-</td>
-                <td>Strijp</td>
-                <td>
-                  <button type="button" class="btn btn-success">Bekijk route</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>2.0km</td>
-                <td>50,-</td>
-                <td>Strijp</td>
-                <td>
-                  <button type="button" class="btn btn-success">Bekijk route</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>2.0km</td>
-                <td>50,-</td>
-                <td>Strijp</td>
-                <td>
-                  <button type="button" class="btn btn-success">Bekijk route</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>2.0km</td>
-                <td>50,-</td>
-                <td>Strijp</td>
-                <td>
-                  <button type="button" class="btn btn-success">Bekijk route</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>2.0km</td>
-                <td>50,-</td>
-                <td>Strijp</td>
+              <tr id="app" v-for="item in data" >
+                <td>{{ item.id }}</td>
+                <td>{{ item.distance }}</td>
+                <td>{{ item.startpoint }}</td>
+                <td>{{ item.endpoint }}</td>
+                <td>{{ item.earnings }}</td>
                 <td>
                   <button type="button" class="btn btn-success">Bekijk route</button>
                 </td>
@@ -112,8 +69,21 @@ import Token from "@/components/authentication/Token.vue";
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  name: "routes"
+  name: "routes",
+  data() {
+    return {
+      data: []
+    }
+  },
+  created() {
+    axios.get(`http://fontys_semester3_api.test/routes`).then(response => {
+      this.data = response.data[0]
+      console.log(this.data)
+    })
+  }
 }
 </script>
 

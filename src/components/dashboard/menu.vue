@@ -1,18 +1,44 @@
 <template>
-    <ul class="dashboard-menu navbar-nav text-center border-top ">
+  <h6 class="text-center bg-primary--blue py-2 text-white ">Post bedrijven</h6>
+    <ul class="dashboard-menu navbar-nav text-start border-top ">
+
       <li class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/routes">Routes</a>
+        <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
       </li>
-      <li  class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/departs">Wijken</a>
-      </li>
-       <li  class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/post-companies">Post bedrijven</a>
+      <li class="nav-item border-bottom">
+        <a class="nav-link" href="/dashboard/routes/create">Routes Aanmaken</a>
       </li>
       <li  class="nav-item border-bottom">
         <a class="nav-link" href="/dashboard/earnings">Opbrengsten</a>
       </li>
     </ul>
+
+  <h6 class="text-center bg-primary--blue py-2 text-white ">Zzp</h6>
+  <ul class="dashboard-menu navbar-nav text-start border-top ">
+    <li class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
+    </li>
+    <li  class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/earnings">Opbrengsten Overzicht</a>
+    </li>
+  </ul>
+  <h6 class="text-center bg-primary--blue py-2 text-white ">beheerders</h6>
+  <ul class="dashboard-menu navbar-nav text-start border-top ">
+
+    <li class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
+    </li>
+    <li class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/routes">Routes Aanmaken</a>
+    </li>
+    <li  class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/post-companies">Post bedrijven Overzicht</a>
+    </li>
+
+    <li  class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/post-companies">Gebruikers Overzicht</a>
+    </li>
+  </ul>
 </template>
 
 <script>

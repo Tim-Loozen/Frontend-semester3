@@ -1,9 +1,6 @@
 <script setup>
-import routes from './routes/routes.vue'
 import menuDashboard from "@/components/dashboard/menu.vue";
 import Token from "@/components/authentication/Token.vue";
-
-
 </script>
 
 <template>
