@@ -25,14 +25,24 @@ import {Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Lin
           <div class="card-header bg-primary--blue text-white"><p><b>Mijn statistieken</b></p></div>
             <div class="card-body">
               <div class="row">
-                <div class="col-6">
+                <div class="col-4">
+                  <div class="row statistics1">
+                    <div class="col-12">
+                      <b>Inkomsten deze week</b>
+                    </div>
+                    <div class="col-12 statistics2">
+                      <b>€ 320,85</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
                   <Bar
                       id="my-chart-id"
                       :options="chartOptions"
                       :data="verdiend_week"
                     />
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                   <Scatter
                       id="my-chart-id"
                       :options="chartOptions"
@@ -41,21 +51,14 @@ import {Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Lin
                 </div>
               </div>
               <div class="row">
-                <div class="col-4">
-                  <Bar
-                      id="my-chart-id"
-                      :options="chartOptions"
-                      :data="huizenperkm"
-                    />
-                </div>
-                <div class="col-4">
+                <div class="col-6">
                   <PolarArea
                       id="my-chart-id"
                       :options="chartOptions"
                       :data="polar"
                     />
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                   <Doughnut
                       id="my-chart-id"
                       :options="chartOptions"
@@ -79,7 +82,7 @@ export default {
   data() {
     return {
       verdiend_week: {
-        labels: ['Week 15', 'Week 16', 'Week 17', 'Week 18'],
+        labels: ['Week 12', 'Week 13', 'Week 14', 'Week 15'],
         datasets: [
           {
             label: 'Verdient',
@@ -111,23 +114,16 @@ export default {
             data: [27, 26, 24, 23],
             backgroundColor: '#e30b12'
         }],
-        labels: ['Week 15', 'Week 16', 'Week 17', 'Week 18']
+        labels: ['Week 12', 'Week 13', 'Week 14', 'Week 15']
       },
-      chartData: {
-        labels: [ 'Route 1', 'Route 2', 'Route 3' ],
-        datasets: [ 
-          { 
-            label: 'Meeste huizen per km2',
-            data: [7, 5, 4] 
-          } 
-        ]
-      }, 
       polar: {
         labels: [ 'Route 1', 'Route 2', 'Route 3' ],
         datasets: [ 
           { 
             label: 'Mijn routes met meeste huizen per km2',
-            data: [7, 5, 4]  
+            data: [7, 5, 4],
+            backgroundColor: ['#e30b1299', '#14479899', '#2c863299'] 
+
           } 
         ]
       },
@@ -137,7 +133,7 @@ export default {
           {
             label: 'Gewerkt voor',
             data: [60, 10, 30],
-            backgroundColor: ['#e18f00', '#dd0034', '#ffcc00'],
+            backgroundColor: ['#14479899', '#e30b1299', '#2c863299'] 
           }
         ]
       },

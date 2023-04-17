@@ -87,6 +87,15 @@ img
 {
   width: 100%;
 }
+.statistics1 {
+  color: #144698 !important;
+  text-align: center;
+}
+.statistics2 {
+  font-size: 4rem;
+  color: #2c8632 !important;
+}
+
 /*.header .container*/
 /*{*/
 /*  height: auto;*/
