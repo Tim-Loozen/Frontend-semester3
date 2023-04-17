@@ -45,9 +45,13 @@ export default {
         password: this.posts.password,
       }).then((result) => {
         console.log(result.data[0]);
-        localStorage.setItem("token", result.data[0])
-        window.location.href = '/dashboard';
-
+        localStorage.setItem("token", result.data[0]);
+        if(localStorage.getItem("token") === "User is not logged in")
+        {
+          window.location.href = '/login'
+        }else {
+          window.location.href = '/dashboard'
+        }
       }).catch((error) => {
         console.log(error);
       })
