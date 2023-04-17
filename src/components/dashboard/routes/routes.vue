@@ -8,7 +8,6 @@ import Token from "@/components/authentication/Token.vue";
   <Token></Token>
   <div class="container-fluid ">
     <div class="row">
-
       <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
       </div>
@@ -62,10 +61,7 @@ import Token from "@/components/authentication/Token.vue";
         </div>
       </div>
     </div>
-
-
   </div>
-
 </template>
 
 <script>

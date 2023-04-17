@@ -11,6 +11,9 @@
       <li  class="nav-item border-bottom">
         <a class="nav-link" href="/dashboard/earnings">Opbrengsten</a>
       </li>
+      <li  class="nav-item border-bottom">
+        <a class="nav-link" href="/dashboard/statistics">Statistieken</a>
+      </li>
     </ul>
 
   <h6 class="text-center bg-primary--blue py-2 text-white ">Zzp</h6>
