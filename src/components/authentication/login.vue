@@ -40,7 +40,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test/login", {
+      axios.post("http://fontys_semester3_api.test:81/login", {
         email: this.posts.email,
         password: this.posts.password,
       }).then((result) => {

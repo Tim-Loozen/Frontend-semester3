@@ -23,8 +23,7 @@ import Token from "@/components/authentication/Token.vue";
         <hr>
         <div class="card">
           <div class="card-header text-white bg-primary--blue">
-            <p><b>Post bedrijven</b><a type="button" href="/dashboard/post-companies/create"
-                                       class="btn float-end btn-success">Post bedrijf aanmaken</a></p>
+            <p><b>Post bedrijven</b></p>
           </div>
           <div class="card-body">
             <table class="table table-striped">
@@ -66,7 +65,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://fontys_semester3_api.test/post_office`).then(response => {
+    axios.get(`http://fontys_semester3_api.test:81/post_office`).then(response => {
       this.data = response.data[0]
       console.log(this.data)
     })

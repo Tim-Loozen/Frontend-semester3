@@ -26,7 +26,7 @@ export default {
     if (localStorage.getItem('token') != null) {
       let DecodedUser = parseJwt(localStorage.getItem("token"));
       let token = localStorage.getItem("token");
-      axios.post("http://fontys_semester3_api.test/verifyToken", {
+      axios.post("http://fontys_semester3_api.test:81/verifyToken", {
         email: DecodedUser.email, token: token
       }).then((result) => {
         console.log(result.data[0]);

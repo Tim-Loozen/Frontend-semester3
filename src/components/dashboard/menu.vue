@@ -37,9 +37,11 @@
     <li  class="nav-item border-bottom">
       <a class="nav-link" href="/dashboard/post-companies">Post bedrijven Overzicht</a>
     </li>
-
     <li  class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/post-companies">Gebruikers Overzicht</a>
+      <a class="nav-link" href="/dashboard/post-companies/create">Post bedrijf aanmaken</a>
+    </li>
+    <li  class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/">Gebruikers Overzicht</a>
     </li>
   </ul>
   <h6 class="text-center bg-primary--blue py-2 text-white ">Statistieken</h6>

@@ -6,13 +6,13 @@ import Token from "@/components/authentication/Token.vue";
 
 <template>
   <Token></Token>
-<section class="py-5">
+<section class="">
   <div class="container-fluid">
     <div class="row">
       <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
       </div>
-      <div class="col-10">
+      <div class="col-10 px-5 py-5">
         <div class="card">
           <div class="card-header bg-primary--blue">
             <p class="text-white"><b>Route toevoegen</b></p>
@@ -79,7 +79,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test/create-route", {
+      axios.post("http://fontys_semester3_api.test:81/create-route", {
       distance: this.data.distance,
       earnings: this.data.earnings,
       startpoint: this.data.startpoint,

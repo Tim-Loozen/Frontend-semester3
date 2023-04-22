@@ -7,7 +7,6 @@
            <img src="/Logo.png" style="width: auto;" height="75" alt="">
             <h4 class="text-black text-secondary">Het post plaform voor zzp'ers</h4>
             <h1 class="text-black ">Zzp post platform</h1>
-            <button type="button" class="btn btn-primary my-3">Start hier u demo</button>
           </div>
         </div>
         <div class="col-6">

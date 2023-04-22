@@ -20,7 +20,7 @@ import Token from "@/components/authentication/Token.vue";
               <input type="text" v-model="posts.postOfficeKVK" class="form-control" id="PostOfficeKvk" placeholder="Kvk">
             </div>
           </div>
-          <button type="submit" class="my-2 mx-2 btn btn-primary">Create</button>
+          <button type="submit" class="my-2 mx-2 btn btn-primary">Aanmaken</button>
         </form>
       </div>
     </div>
@@ -43,7 +43,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test/create_post_office", {
+      axios.post("http://fontys_semester3_api.test:81/create_post_office", {
         postOfficeEmail: this.posts.postOfficeEmail,
         postOfficeKVK: this.posts.postOfficeKVK,
         postOfficeName: this.posts.postOfficeName,

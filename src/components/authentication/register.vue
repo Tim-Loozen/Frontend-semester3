@@ -40,10 +40,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="inputState">Provincie</label>
-                <select v-model="posts.state" id="inputState" class="form-control">
-                  <option selected>Kies...</option>
-                  <option>...</option>
-                </select>
+                <input v-model="posts.state" type="text" class="form-control" id="inputState">
               </div>
               <div class="form-group col-md-2">
                 <label for="inputZip">Postcode</label>
@@ -61,14 +58,6 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="inputCompanyType">Zzp / Post bedrijf</label>
-              <select id="inputCompanyType" class="form-control">
-                <option selected>Kies...</option>
-                <option>Limburg</option>
-                <option>Noord-brabant</option>
-              </select>
-            </div>
 
             <button type="submit" class="btn btn-primary my-2">Registreren</button>
           </form>
@@ -103,7 +92,7 @@ export default {
     postData(e) {
       e.preventDefault();
 
-      axios.post("http://fontys_semester3_api.test/register", {
+      axios.post("http://fontys_semester3_api.test:81/register", {
         firstname: this.posts.firstname,
         lastname: this.posts.lastname,
         email: this.posts.email,

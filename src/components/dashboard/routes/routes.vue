@@ -52,7 +52,7 @@ import Token from "@/components/authentication/Token.vue";
                 <td>{{ item.endpoint }}</td>
                 <td>{{ item.earnings }}</td>
                 <td>
-                  <button type="button" class="btn btn-success">Bekijk route</button>
+                  <a href="/dashboard/route" type="button" class="btn btn-success">Bekijk route</a>
                 </td>
               </tr>
               </tbody>
@@ -75,7 +75,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://fontys_semester3_api.test/routes`).then(response => {
+    axios.get(`http://fontys_semester3_api.test:81/routes`).then(response => {
       this.data = response.data[0]
       console.log(this.data)
     })
