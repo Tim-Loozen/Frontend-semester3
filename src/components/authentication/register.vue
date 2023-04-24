@@ -92,7 +92,7 @@ export default {
     postData(e) {
       e.preventDefault();
 
-      axios.post("http://fontys_semester3_api.test:81/register", {
+      axios.post("http://fontys_semester3_api.test/register", {
         firstname: this.posts.firstname,
         lastname: this.posts.lastname,
         email: this.posts.email,

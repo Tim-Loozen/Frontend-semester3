@@ -7,7 +7,7 @@
             <h1>Login</h1>
             <hr>
           </div>
-          <form @submit="postData" method="POST">
+          <form @submit="postData()" method="POST">
             <div class="form-group">
               <label for="exampleInputEmail1">E-mail adres</label>
               <input type="email" v-model="posts.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
@@ -40,7 +40,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test:81/login", {
+      axios.post("http://fontys_semester3_api.test/login", {
         email: this.posts.email,
         password: this.posts.password,
       }).then((result) => {

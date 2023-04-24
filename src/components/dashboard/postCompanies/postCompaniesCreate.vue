@@ -43,7 +43,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test:81/create_post_office", {
+      axios.post("http://fontys_semester3_api.test/create_post_office", {
         postOfficeEmail: this.posts.postOfficeEmail,
         postOfficeKVK: this.posts.postOfficeKVK,
         postOfficeName: this.posts.postOfficeName,

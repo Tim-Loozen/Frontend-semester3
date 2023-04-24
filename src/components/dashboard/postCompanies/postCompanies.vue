@@ -65,7 +65,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://fontys_semester3_api.test:81/post_office`).then(response => {
+    axios.get(`http://fontys_semester3_api.test/post_office`).then(response => {
       this.data = response.data[0]
       console.log(this.data)
     })

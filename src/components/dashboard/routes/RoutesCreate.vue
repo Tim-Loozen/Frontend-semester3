@@ -79,7 +79,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test:81/create-route", {
+      axios.post("http://fontys_semester3_api.test/create-route", {
       distance: this.data.distance,
       earnings: this.data.earnings,
       startpoint: this.data.startpoint,
