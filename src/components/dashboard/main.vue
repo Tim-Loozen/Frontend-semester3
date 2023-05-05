@@ -1,12 +1,11 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
-import Token from "@/components/authentication/Token.vue";
 </script>
 
 <template>
   <div class="container-fluid ">
     <div class="row ">
-<Token></Token>
+
       <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
       </div>

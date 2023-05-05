@@ -1,9 +1,9 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
-import Token from "@/components/authentication/Token.vue";
+
 </script>
 <template>
-  <Token></Token>
+
   <div class="container-fluid ">
     <div class="row">
       <div class="col-2 bg-light">
@@ -39,7 +39,7 @@ import Token from "@/components/authentication/Token.vue";
                 <th scope="row">{{item.id}}</th>
                 <td>{{ item.name }}</td>
                 <td>{{item.kvk}}</td>
-                <td><a href="/dashboard/post-companies/account/create" class="btn btn-primary">Voeg account toe</a></td>
+                <td><router-link :to="{name: 'createPostCompanyAccount', params: {id: item.id}}"  class="btn btn-primary">Voeg account toe</router-link></td>
                 <td>
 
                 </td>

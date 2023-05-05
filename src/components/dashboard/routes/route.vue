@@ -1,9 +1,9 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
-import Token from "@/components/authentication/Token.vue";
+
 </script>
 <template>
-  <Token></Token>
+
   <section class="">
     <div class="container-fluid">
       <div class="row">

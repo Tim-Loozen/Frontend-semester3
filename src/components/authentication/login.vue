@@ -7,7 +7,7 @@
             <h1>Login</h1>
             <hr>
           </div>
-          <form @submit="postData()" method="POST">
+          <form @submit="postData" method="POST">
             <div class="form-group">
               <label for="exampleInputEmail1">E-mail adres</label>
               <input type="email" v-model="posts.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">

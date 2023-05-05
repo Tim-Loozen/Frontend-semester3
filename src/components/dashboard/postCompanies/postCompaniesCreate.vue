@@ -1,6 +1,6 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
-import Token from "@/components/authentication/Token.vue";
+
 </script>
 <template>
   <div class="container-fluid">

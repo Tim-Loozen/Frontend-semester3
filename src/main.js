@@ -50,7 +50,7 @@ const routes = [
     {path: '/dashboard/post-companies', component: postCompanies},
     {path: '/dashboard/post-companies/accounts', component: PostCompaniesAccount},
     {path: '/dashboard/post-companies/create', component: createPostCompanies},
-    {path: '/dashboard/post-companies/account/create', component: createPostCompanyAccount},
+    {path: '/dashboard/post-companies/account/create/:id', component: createPostCompanyAccount, name: 'createPostCompanyAccount'},
     {path: '/register', component: register },
     {path: '/dashboard', component: Dashboard }
 ];
