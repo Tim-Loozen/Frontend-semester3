@@ -49,10 +49,10 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 </template>
 <script>
 import routes from "@/components/dashboard/routes/routes.vue";
-
-
 import axios, {Axios} from "axios";
+import api from "@/api";
 
+const a = new api();
 export default {
   name: "PostCompanyAccountCreate",
   data() {
@@ -72,15 +72,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test/create_post_office_account", {
-        firstname: this.data.firstname,
-        lastname: this.data.lastname,
-        email: this.data.email,
-        position: this.data.position,
-        cellphone: this.data.cellphone,
-        password: this.data.password,
-        postCompany: this.data.postCompany
-      }).then((result) => {
+      a.createPostCompanyAccount(this.data).then((result) => {
         console.log(result.data);
 
       }).catch((error) => {

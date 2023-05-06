@@ -52,7 +52,8 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 </template>
 <script>
 import axios from "axios";
-
+import api from "@/api";
+const a = new api();
 export default {
   name: "PostCompaniesAccount",
   data() {
@@ -61,7 +62,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://fontys_semester3_api.test/post_office_account`).then(response => {
+    a.getPostCompanyAccounts().then(response => {
       this.data = response.data[0]
       console.log(this.data)
     })

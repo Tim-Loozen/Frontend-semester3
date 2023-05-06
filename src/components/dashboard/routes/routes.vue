@@ -37,6 +37,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
               <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Post bedrijf</th>
                 <th scope="col">Afstand</th>
                 <th scope="col">startpunt</th>
                 <th scope="col">eindpunt</th>
@@ -47,13 +48,12 @@ import menuDashboard from "@/components/dashboard/menu.vue";
               <tbody>
               <tr id="app" v-for="item in data" >
                 <td>{{ item.id }}</td>
+                <td>{{ item.postOffice }}</td>
                 <td>{{ item.distance }}</td>
                 <td>{{ item.startpoint }}</td>
                 <td>{{ item.endpoint }}</td>
                 <td>{{ item.earnings }}</td>
-                <td>
-                  <a href="/dashboard/route" type="button" class="btn btn-success">Bekijk route</a>
-                </td>
+                <td><router-link :to="{name: 'route', params: {id: item.id}}"  class="btn btn-primary">Bekijk route</router-link></td>
               </tr>
               </tbody>
             </table>
@@ -66,7 +66,8 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 
 <script>
 import axios from "axios";
-
+import api from "@/api";
+const a = new api();
 export default {
   name: "routes",
   data() {
@@ -75,7 +76,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://fontys_semester3_api.test/routes`).then(response => {
+    a.getPostRoutes().then(response => {
       this.data = response.data[0]
       console.log(this.data)
     })

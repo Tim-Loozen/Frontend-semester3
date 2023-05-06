@@ -13,11 +13,13 @@ import menuDashboard from "@/components/dashboard/menu.vue";
           <div class="form-row">
             <div class="form-group col-md-6 my-2 mx-2">
               <label for="PostOfficeName">Naam</label>
-              <input type="text" v-model="posts.postOfficeName" class="form-control" id="PostOfficeName" placeholder="Name">
+              <input type="text" v-model="posts.postOfficeName" class="form-control" id="PostOfficeName"
+                     placeholder="Name">
             </div>
             <div class="form-group col-md-6 my-2 mx-2">
               <label for="PostOfficeKvk">Kvk</label>
-              <input type="text" v-model="posts.postOfficeKVK" class="form-control" id="PostOfficeKvk" placeholder="Kvk">
+              <input type="text" v-model="posts.postOfficeKVK" class="form-control" id="PostOfficeKvk"
+                     placeholder="Kvk">
             </div>
           </div>
           <button type="submit" class="my-2 mx-2 btn btn-primary">Aanmaken</button>
@@ -30,6 +32,9 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 
 <script>
 import axios, {Axios} from "axios";
+import api from "@/api";
+
+const a = new api();
 export default {
   name: "new",
   data() {
@@ -43,13 +48,8 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test/create_post_office", {
-        postOfficeEmail: this.posts.postOfficeEmail,
-        postOfficeKVK: this.posts.postOfficeKVK,
-        postOfficeName: this.posts.postOfficeName,
-      }).then((result) => {
+      a.createPostCompany(this.posts).then((result) => {
         console.log(result.data);
-
       }).catch((error) => {
         console.log(error);
       })

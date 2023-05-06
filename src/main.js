@@ -42,7 +42,7 @@ const routes = [
     {path: '/dashboard/admin', component: admin},
     {path: '/login', component: login },
     {path: '/dashboard/routes/create', component: routeCreates},
-    {path: '/dashboard/route', component: route},
+    {path: '/dashboard/route/:id', component: route, name: 'route' },
     {path: '/dashboard/routes', component: routesAll},
     {path: '/dashboard/settings', component: settings},
     {path: '/dashboard/earnings', component: earnings},

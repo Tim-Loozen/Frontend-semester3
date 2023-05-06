@@ -70,6 +70,8 @@
 <script>
 
 import axios, {Axios} from "axios";
+import api from "@/api";
+const  a = new api();
 export default {
   name: "register",
   data() {
@@ -91,25 +93,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-
-      axios.post("http://fontys_semester3_api.test/register", {
-        firstname: this.posts.firstname,
-        lastname: this.posts.lastname,
-        email: this.posts.email,
-        password: this.posts.password,
-        address: this.posts.address,
-        city: this.posts.city,
-        state: this.posts.state,
-        zipcode: this.posts.zipcode,
-        company: this.posts.company,
-        kvk: this.posts.kvk,
-
-      }).then((result) => {
-        console.log(result);
-      }).catch((error) => {
-        console.log(error);
-      })
-
+     a.createUser(this.posts);
     }
   }
 }

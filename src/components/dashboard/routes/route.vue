@@ -55,8 +55,22 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 </template>
 
 <script>
+import api from "@/api";
+const a = new api();
 export default {
-  name: "route"
+  name: "route",
+  data() {
+    return {
+      data: []
+    }
+  },
+  created() {
+
+    a.getPostRoute(this.$route.params.id).then(response => {
+      this.data = response.data[0]
+      console.log(this.data)
+    })
+  }
 }
 </script>
 
