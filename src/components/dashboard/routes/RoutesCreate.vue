@@ -18,6 +18,9 @@ import menuDashboard from "@/components/dashboard/menu.vue";
               <p class="text-white"><b>Route toevoegen</b></p>
             </div>
             <div class="card-body">
+              <div v-if="success" class="alert alert-success" role="alert">
+                route is aangemaakt
+              </div>
               <form class="" @submit="postData" method="POST">
                 <div class="row ">
                   <div class="form-group col-md-6">
@@ -69,6 +72,7 @@ export default {
   name: "Route",
   data() {
     return {
+      success: false,
       data: {
         distance: null,
         earnings: null,
@@ -82,10 +86,13 @@ export default {
     postData(e) {
       e.preventDefault();
       a.createRoute(this.data).then((result) => {
-        console.log(result.data);
+        if(result.data[0] === "route_ok")
+        {
+          this.success = true;
+        }
       }).catch((error) => {
         console.log(error);
-      })
+      });
 
     }
   }

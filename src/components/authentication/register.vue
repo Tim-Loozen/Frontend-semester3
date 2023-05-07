@@ -6,6 +6,9 @@
           <div class="text-center">
             <h1>Registreren</h1>
             <hr>
+            <div v-if="success" class="alert alert-success" role="alert">
+              Registratie is succesvol
+            </div>
           </div>
           <form class="pt-5" @submit="postData" method="post">
             <div class="row ">
@@ -76,6 +79,7 @@ export default {
   name: "register",
   data() {
     return {
+      success: false,
       posts: {
         firstname: null,
         lastname: null,
@@ -93,7 +97,14 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-     a.createUser(this.posts);
+     a.createUser(this.posts).then((result) => {
+       if(result.data[0] === "register_ok")
+       {
+         this.success = true;
+       }
+     }).catch((error) => {
+       console.log(error);
+     });
     }
   }
 }

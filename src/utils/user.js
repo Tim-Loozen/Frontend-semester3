@@ -15,8 +15,7 @@ class user {
     }
     static getUser()
     {
-        console.log("test")
-        return this.parseJwt(localStorage.getItem('token'));
+              return this.parseJwt(localStorage.getItem('token'));
     }
 
 }

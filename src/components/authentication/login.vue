@@ -29,7 +29,7 @@
 import axios, {Axios} from "axios";
 import api from "@/utils/api";
 
-a = new api();
+const a = new api();
 export default {
   name: "login",
   data() {

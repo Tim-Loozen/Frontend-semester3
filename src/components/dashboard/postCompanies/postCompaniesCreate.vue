@@ -9,6 +9,9 @@ import menuDashboard from "@/components/dashboard/menu.vue";
         <menuDashboard></menuDashboard>
       </div>
       <div class="col-10">
+        <div v-if="success" class="alert alert-success" role="alert">
+           postbedrijf is aangemaakt
+        </div>
         <form @submit="postData" method="POST">
           <div class="form-row">
             <div class="form-group col-md-6 my-2 mx-2">
@@ -39,6 +42,7 @@ export default {
   name: "new",
   data() {
     return {
+      success: false,
       posts: {
         postOfficeKVK: null,
         postOfficeName: null,
@@ -49,10 +53,13 @@ export default {
     postData(e) {
       e.preventDefault();
       a.createPostCompany(this.posts).then((result) => {
-        console.log(result.data);
+        if(result.data[0] === "postOffice_ok")
+        {
+          this.success = true;
+        }
       }).catch((error) => {
         console.log(error);
-      })
+      });
 
     }
   }

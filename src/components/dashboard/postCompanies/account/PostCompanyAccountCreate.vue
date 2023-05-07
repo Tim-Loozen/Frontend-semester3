@@ -9,6 +9,9 @@ import menuDashboard from "@/components/dashboard/menu.vue";
         <menuDashboard></menuDashboard>
       </div>
       <div class="col-10">
+        <div v-if="success" class="alert alert-success" role="alert">
+          account voor postbedrijf is aangemaakt
+        </div>
         <form class="pt-5" @submit="postData" method="post">
           <div class="row ">
             <div class="form-group col-md-6">
@@ -58,6 +61,7 @@ export default {
   data() {
     console.log(this.$route.params.id);
     return {
+      success: false,
       data: {
         firstname: null,
         lastname: null,
@@ -73,12 +77,13 @@ export default {
     postData(e) {
       e.preventDefault();
       a.createPostCompanyAccount(this.data).then((result) => {
-        console.log(result.data);
-
+        if(result.data[0] === "postCompanyAccount_ok")
+        {
+          this.success = true;
+        }
       }).catch((error) => {
         console.log(error);
-      })
-
+      });
     }
   }
 

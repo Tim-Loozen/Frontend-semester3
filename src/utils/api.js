@@ -80,6 +80,18 @@ class api {
         return this.request.post(`/create_post_office_account`, payload)
     }
 
+    createPostRequest(data)
+    {
+        const payload = {
+            userid: data.userid,
+            postRouteId: data.postRouteId,
+            description: data.description
+        }
+
+        return this.request.post('/wanttheroute', payload, this.getConfig())
+    }
+
+
 
 
     getPostCompanies() {
