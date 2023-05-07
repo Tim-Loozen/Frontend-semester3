@@ -36,8 +36,27 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <li>Afstand:</li>
               </ul>
               <hr>
-
-              <button type="button" class="btn btn-primary">Aanmelden voor route</button>
+              <button @click="showDialog" type="button" id="myBtn" class="btn btn-primary">Aanmelden voor route</button>
+              <dialog id="dialog" style="margin:auto;">
+                <h5>Aanmelden voor de route</h5>
+                <p>Weet je zeker dat je je wilt aanmelden voor deze route?</p>
+                <form action="">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                           placeholder="name@example.com" :value="u.email" disabled>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+                      Beste,
+                      Ik ben geintresseerd in uw route. Ik verneem graag van u.
+                    </textarea>
+                  </div>
+                  <button>Ja</button>
+                  <button>Nee</button>
+                </form>
+              </dialog>
             </div>
             <div class="col-6">
               <h2>Map</h2>
@@ -54,13 +73,26 @@ import menuDashboard from "@/components/dashboard/menu.vue";
   </section>
 </template>
 
+
 <script>
-import api from "@/api";
+import user from "@/utils/user";
+
+var name = "";
+
+import api from "@/utils/api";
 const a = new api();
+
 export default {
   name: "route",
+  methods: {
+    showDialog() {
+      document.getElementById('dialog').showModal();
+    }
+  },
+
   data() {
     return {
+      u: user.getUser(),
       data: []
     }
   },
@@ -68,7 +100,7 @@ export default {
 
     a.getPostRoute(this.$route.params.id).then(response => {
       this.data = response.data[0]
-      console.log(this.data)
+      console.log(this.data);
     })
   }
 }

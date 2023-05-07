@@ -50,7 +50,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 <script>
 import routes from "@/components/dashboard/routes/routes.vue";
 import axios, {Axios} from "axios";
-import api from "@/api";
+import api from "@/utils/api";
 
 const a = new api();
 export default {

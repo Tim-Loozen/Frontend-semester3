@@ -15,7 +15,6 @@
     "jquery": "^3.6.3",
     "popper.js": "^1.16.1",
     "serve": "^14.2.0",
-    "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-chart.js": "^0.2.0",
     "vue-chartjs": "^5.2.0",

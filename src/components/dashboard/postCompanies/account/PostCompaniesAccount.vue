@@ -52,7 +52,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 </template>
 <script>
 import axios from "axios";
-import api from "@/api";
+import api from "@/utils/api";
 const a = new api();
 export default {
   name: "PostCompaniesAccount",

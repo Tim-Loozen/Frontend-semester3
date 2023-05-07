@@ -27,6 +27,9 @@
 <script>
 
 import axios, {Axios} from "axios";
+import api from "@/utils/api";
+
+a = new api();
 export default {
   name: "login",
   data() {
@@ -40,10 +43,7 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-      axios.post("http://fontys_semester3_api.test/login", {
-        email: this.posts.email,
-        password: this.posts.password,
-      }).then((result) => {
+     a.login(this.posts).then((result) => {
         console.log(result.data[0]);
         localStorage.setItem("token", result.data[0]);
         if(localStorage.getItem("token") === "User is not logged in")

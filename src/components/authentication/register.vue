@@ -70,7 +70,7 @@
 <script>
 
 import axios, {Axios} from "axios";
-import api from "@/api";
+import api from "@/utils/api";
 const  a = new api();
 export default {
   name: "register",

@@ -12,6 +12,22 @@ class api {
         });
     }
 
+    getConfig() {
+        return {
+            headers: {
+                "X-API-TOKEN": localStorage.getItem('token')
+            }
+        }
+    }
+    login(data)
+    {
+        const payload = {
+            email: data.email,
+            password: data.password
+        }
+        return this.request.post("/login", payload, this.getConfig())
+    }
+
     createRoute(data) {
         const payload = {
             distance: data.distance,
@@ -20,12 +36,8 @@ class api {
             endpoint: data.endpoint,
             time: data.time,
         }
-        const config = {
-            headers: {
-                "X-API-TOKEN": localStorage.getItem('token')
-            }
-        }
-        return this.request.post("/create-route", payload, config)
+
+        return this.request.post("/create-route", payload, this.getConfig())
     }
 
     createUser(data) {
@@ -68,13 +80,7 @@ class api {
         return this.request.post(`/create_post_office_account`, payload)
     }
 
-    getConfig() {
-        return {
-            headers: {
-                "X-API-TOKEN": localStorage.getItem('token')
-            }
-        }
-    }
+
 
     getPostCompanies() {
         return this.request.get(`/post_office`)
