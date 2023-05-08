@@ -28,6 +28,9 @@
       <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
     </li>
     <li class="nav-item border-bottom">
+      <a class="nav-link" href="/dashboard/routes/requests">Mijn verzoeken</a>
+    </li>
+    <li class="nav-item border-bottom">
       <a class="nav-link" href="/dashboard/earnings">Opbrengsten Overzicht</a>
     </li>
   </ul>

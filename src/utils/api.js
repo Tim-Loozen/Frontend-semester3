@@ -115,6 +115,12 @@ class api {
         return this.request.get('/get-requests', this.getConfig())
     }
 
+    getDashboardInformation()
+    {
+        return this.request.get('/statistics', this.getConfig())
+    }
+
+
     verifyToken() {
       return  this.request.get("/verifyToken", this.getConfig());
     }
