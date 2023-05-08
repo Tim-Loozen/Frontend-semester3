@@ -8,6 +8,9 @@
         <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
       </li>
       <li class="nav-item border-bottom">
+        <a class="nav-link" href="/dashboard/routes/requests">Verzoeken</a>
+      </li>
+      <li class="nav-item border-bottom">
         <a class="nav-link" href="/dashboard/routes/create">Routes Aanmaken</a>
       </li>
       <li class="nav-item border-bottom">

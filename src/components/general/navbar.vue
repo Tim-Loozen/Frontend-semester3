@@ -21,7 +21,7 @@
         </ul>
         <ul v-if="token != null" class=" d-flex navbar-nav navbar-nav-scroll">
           <li class="nav-item">
-            <a class="nav-link" href="/" onclick="localStorage.clear()">Logout</a>
+            <a class="nav-link" href="/" onclick="localStorage.clear()">Uitloggen</a>
           </li>
 
         </ul>

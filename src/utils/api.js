@@ -111,6 +111,10 @@ class api {
         return this.request.get(`/route/` + id, this.getConfig())
     }
 
+    getRouteRequests(){
+        return this.request.get('/get-requests', this.getConfig())
+    }
+
     verifyToken() {
       return  this.request.get("/verifyToken", this.getConfig());
     }

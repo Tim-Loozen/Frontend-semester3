@@ -27,7 +27,7 @@ import routesAll from "@/components/dashboard/routes/routes.vue";
 import routeCreates from "@/components/dashboard/routes/RoutesCreate.vue";
 import earnings from "@/components/dashboard/earnings/earnings.vue";
 import statistics from "@/components/dashboard/statistics/statistics.vue";
-
+import RouteRequests from "@/components/dashboard/postRequests/postRequests.vue";
 
 /*Departs*/
 
@@ -44,6 +44,7 @@ const routes = [
     {path: '/dashboard/routes/create', component: routeCreates},
     {path: '/dashboard/route/:id', component: route, name: 'route' },
     {path: '/dashboard/routes', component: routesAll},
+    {path: '/dashboard/routes/requests', component: RouteRequests},
     {path: '/dashboard/settings', component: settings},
     {path: '/dashboard/earnings', component: earnings},
     {path: '/dashboard/statistics', component: statistics},
