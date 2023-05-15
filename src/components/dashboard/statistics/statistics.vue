@@ -16,45 +16,45 @@ import {
 } from 'chart.js'
 </script>
 <template>
-  <div className="container-fluid ">
-    <div className="row">
-      <div className="col-2 bg-light">
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
       </div>
-      <div className="col-10 px-5 py-5">
-        <div className="row py-1">
-          <div className="col-6">
+      <div class="col-10 px-5 py-5">
+        <div class="row py-1">
+          <div class="col-6">
             <h2>Statistieken</h2>
           </div>
-          <div className="col-6 ">
-            <div className="text-end">
-              <a href="/dashboard/settings" className="btn btn-primary">Instellingen</a>
+          <div class="col-6 ">
+            <div class="text-end">
+              <a href="/dashboard/settings" class="btn btn-primary">Instellingen</a>
             </div>
           </div>
         </div>
         <hr>
-        <div className="card">
-          <div className="card-header bg-primary--blue text-white"><p><b>Mijn statistieken</b></p></div>
-          <div className="card-body">
-            <div className="row">
-              <div className="col-4">
-                <div className="row statistics1">
-                  <div className="col-12">
+        <div class="card">
+          <div class="card-header bg-primary--blue text-white"><p><b>Mijn statistieken</b></p></div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <div class="row statistics1">
+                  <div class="col-12">
                     <b>Inkomsten deze week</b>
                   </div>
-                  <div className="col-12 statistics2">
+                  <div class="col-12 statistics2">
                     <b>€ 320,85</b>
                   </div>
                 </div>
               </div>
-              <div className="col-4">
+              <div class="col-4">
                 <Bar
                     id="my-chart-id"
                     :options="chartOptions"
                     :data="verdiend_week"
                 />
               </div>
-              <div className="col-4">
+              <div class="col-4">
                 <Scatter
                     id="my-chart-id"
                     :options="chartOptions"
@@ -62,15 +62,15 @@ import {
                 />
               </div>
             </div>
-            <div className="row">
-              <div className="col-6">
+            <div class="row">
+              <div class="col-6">
                 <PolarArea
                     id="my-chart-id"
                     :options="chartOptions"
                     :data="polar"
                 />
               </div>
-              <div className="col-6">
+              <div class="col-6">
                 <Doughnut
                     id="my-chart-id"
                     :options="chartOptions"
@@ -88,6 +88,8 @@ import {
 <script>
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement, PointElement, LineElement, RadialLinearScale)
 import api from "@/utils/api";
+import chartUtil from "@/utils/chartUtil";
+
 const a = new api();
 
 
@@ -103,7 +105,7 @@ export default {
           {
             label: 'Verdient',
             backgroundColor: '#144798',
-            data:  this.responseData.map(a => { return { x: a[0], y: a[1]  } }),
+            data: [5, 10, 15],
           }
         ]
       },
@@ -161,8 +163,13 @@ export default {
   },
   created() {
     a.getDashboardInformation().then(response => {
-      this.data.responseData = response.data[0]
-      console.log(this.data.responseData)
+      this.responseData = response.data[0]
+      const ch = new chartUtil(this.responseData);
+      const totalEarnings = ch.calculateTotal("earnings");
+      const totalMinutes = ch.calculateTotal("Minutes")
+      const totalHours = ch.timeConvert(totalMinutes);
+      ch.EarnedPerHour(totalHours, totalEarnings);
+      ch.PostOfficePrecantage();
     })
   }
 }
