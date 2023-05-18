@@ -5,7 +5,7 @@ class api {
 
     constructor() {
         this.request = axios.create({
-            baseURL: 'http://fontys_semester3_api.test/',
+            baseURL: 'http://fontys_semester3_api.test:81/',
             headers: {
                 'Content-type': 'application/json',
             },

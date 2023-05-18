@@ -170,6 +170,7 @@ export default {
       const totalHours = ch.timeConvert(totalMinutes);
       ch.EarnedPerHour(totalHours, totalEarnings);
       ch.PostOfficePrecantage();
+      ch.MostValubaleRoute();
     })
   }
 }
