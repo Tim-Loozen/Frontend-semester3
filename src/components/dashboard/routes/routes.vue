@@ -53,9 +53,9 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <td>{{ item.distance }}</td>
                 <td>{{ item.startpoint }}</td>
                 <td>{{ item.endpoint }}</td>
-                <td class="bg-success"><span style="color:white">Beschikbaar</span></td>
+                <td :class="`bg-${item.status}`"><span style="color:white">{{item.status}}</span></td>
                 <td>{{ item.earnings }}</td>
-                <td><router-link :to="{name: 'route', params: {id: item.id}}"  class="btn btn-primary">Bekijk route</router-link></td>
+                <td  v-if="item.status !== 'Toegekend'"><router-link :to="{name: 'route', params: {id: item.id}}"  class="btn btn-primary">Bekijk route</router-link></td>
               </tr>
               </tbody>
             </table>

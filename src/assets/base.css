@@ -134,13 +134,15 @@ img
   cursor: pointer;
 }
 
-/*.header .container*/
-/*{*/
-/*  height: auto;*/
-/*  padding: 2rem;*/
-/*  background-color: #292d33;*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  transform: translateY(-50%);*/
-/*}*/
-
+.bg-active{
+  background-color: green !important;
+}
+.bg-Toegekend{
+  background-color: #144698 !important;
+}
+.bg-done{
+  background-color: red !important;
+}
+.bg-{
+  background-color: orange!important;
+}

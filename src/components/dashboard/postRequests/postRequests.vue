@@ -39,15 +39,20 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <th scope="col">Route nummer</th>
                 <th scope="col">Beschrijving</th>
                 <th scope="col">Reageren</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
               </tr>
               </thead>
               <tbody>
               <tr id="app" v-for="item in data">
                 <td>{{ item.requestId }}</td>
                 <td>{{ item.username }}</td>
-                <td>{{ item.route }}</td>
+                <td><a :href="`/dashboard/route/${item.route}`">{{ item.route }}</a></td>
                 <td>{{ item.description }}</td>
-                <td><div class="btn btn-primary">Reageren</div></td>
+                <td></td>
+                <td>{{item.RequestStatus}}</td>
+                <td v-if="item.RequestStatus === 'Toegekend'">
+                  <button class="btn btn-success">Route starten</button></td>
               </tr>
               </tbody>
             </table>

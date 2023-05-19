@@ -92,6 +92,12 @@ class api {
         return this.request.post('/wanttheroute', payload, this.getConfig())
     }
 
+    changePostRouteStatus(data)
+    {
+
+        return this.request.post('/route-status', data, this.getConfig())
+    }
+
 
 
 
