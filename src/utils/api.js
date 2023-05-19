@@ -5,7 +5,7 @@ class api {
 
     constructor() {
         this.request = axios.create({
-            baseURL: 'http://fontys_semester3_api.test:81/',
+            baseURL: 'http://fontys_semester3_api.test/',
             headers: {
                 'Content-type': 'application/json',
             },
@@ -32,6 +32,7 @@ class api {
         const payload = {
             distance: data.distance,
             earnings: data.earnings,
+            description: data.description,
             startpoint: data.startpoint,
             endpoint: data.endpoint,
             time: data.time,

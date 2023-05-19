@@ -41,6 +41,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <th scope="col">Afstand</th>
                 <th scope="col">startpunt</th>
                 <th scope="col">eindpunt</th>
+                <th scope="col">Status</th>
                 <th scope="col">Opbrengst</th>
                 <th></th>
               </tr>
@@ -52,6 +53,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <td>{{ item.distance }}</td>
                 <td>{{ item.startpoint }}</td>
                 <td>{{ item.endpoint }}</td>
+                <td class="bg-success"><span style="color:white">Beschikbaar</span></td>
                 <td>{{ item.earnings }}</td>
                 <td><router-link :to="{name: 'route', params: {id: item.id}}"  class="btn btn-primary">Bekijk route</router-link></td>
               </tr>

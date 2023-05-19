@@ -50,6 +50,10 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                   <label for="">Obrengst</label>
                   <input v-model="data.earnings" type="text" class="form-control" id="compensation" placeholder="">
                 </div>
+                <div class="form-group">
+                  <label for="">Description</label>
+                  <textarea v-model="data.description" type="text" class="form-control" id="description" placeholder="some information about this route...."></textarea>
+                </div>
 
 
                 <button type="submit" class="btn btn-primary my-2">Route aanmaken
@@ -77,6 +81,7 @@ export default {
         distance: null,
         earnings: null,
         startpoint: null,
+        description: null,
         endpoint: null,
         time: null,
       }

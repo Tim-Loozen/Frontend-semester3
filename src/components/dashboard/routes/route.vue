@@ -11,29 +11,17 @@ import menuDashboard from "@/components/dashboard/menu.vue";
           <menuDashboard></menuDashboard>
         </div>
         <div class="col-10 px-5 py-5">
-          <div class="row ">
+          <div class="row " id="app" v-for="item in getData">
             <div class="col-6">
               <h2>Beschrijving</h2>
               <hr>
-              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-                Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-                Lorem
-                Ipsum passage, and going through the cites of the word in classical literature, discovered the
-                undoubtable
-                source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
-                Extremes
-                of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very
-                popular
-                during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
-                in
-                section 1.10.32.</p>
+              <p>{{item.description}}</p>
               <h2>Overzicht</h2>
               <hr>
               <ul>
-                <li>Werkgever:</li>
-                <li>Opbrengst:</li>
-                <li>Afstand:</li>
+                <li>Werkgever:{{item.postOffice}}</li>
+                <li>Opbrengst:{{item.earnings}}</li>
+                <li>Afstand:{{item.distance}}</li>
               </ul>
               <hr>
               <button @click="showDialog" type="button" id="myBtn" class="btn btn-primary">Aanmelden voor route</button>
@@ -62,7 +50,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
               </dialog>
             </div>
             <div class="col-6">
-              <h2>Map</h2>
+              <h2>Kaart</h2>
               <hr>
               <div class="py-2">
                 <img src="/mapsStock.png" width="100%" height="100%" alt="">
@@ -80,8 +68,6 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 <script>
 import user from "@/utils/user";
 import api from "@/utils/api";
-
-var name = "";
 const a = new api();
 
 export default {
@@ -90,12 +76,19 @@ export default {
     return {
       success: false,
       u: user.getUser(),
+      getData: [],
       data: [],
       postRequestData:{
         postRouteId:  this.$route.params.id,
         description: null
       }
     }
+  },
+  created() {
+    a.getPostRoute(this.$route.params.id).then(response => {
+      this.getData = response.data
+      console.log(this.getData);
+    })
   },
   methods: {
     showDialog() {
@@ -104,21 +97,14 @@ export default {
     postData(e) {
       e.preventDefault();
       a.createPostRequest(this.postRequestData).then((result) => {
-       if(result.data[0] === "request_ok")
-       {
-         this.success = true;
-       }
+        if(result.data[0] === "request_ok")
+        {
+          this.success = true;
+        }
       }).catch((error) => {
         console.log(error);
       });
     }
-  },
-
-  created() {
-    a.getPostRoute(this.$route.params.id).then(response => {
-      this.data = response.data[0]
-      console.log(this.data);
-    })
   }
 }
 </script>
