@@ -1,0 +1,36 @@
+.bg-active span {
+    background-color: #ccf6e4 !important;
+    color: #00864e !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.bg-Toegekend span {
+    background-color: #144698 !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.bg-done {
+    background-color: red !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.bg- {
+    background-color: orange !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+table td{
+    color: rgb(77, 89, 105);
+    font-family: var(--font) !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+}
+
+table .btn{
+    font-family: var(--font) !important;
+    font-size: 0.9rem !important;
+    font-weight: 700;
+}

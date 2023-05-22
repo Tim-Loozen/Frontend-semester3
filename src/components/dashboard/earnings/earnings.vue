@@ -1,34 +1,30 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
+import Search from "@/components/dashboard/search.vue";
 </script>
 <template>
-  <div class="container-fluid ">
-    <div class="row">
-      <div class="col-2 bg-light">
+  <section class="bg-dashboard">
+    <div class="container">
+      <div class="row">
         <menuDashboard></menuDashboard>
-      </div>
-      <div class="col-10 px-5 py-5">
-        <div class="row py-1">
-          <div class="col-6">
-            <h2>Verdiensten</h2>
-          </div>
-          <div class="col-6 ">
-            <div class="text-end">
-              <a href="/dashboard/settings" class="btn btn-primary">Instellingen</a>
+        <div class="col-10 px-5 py-2">
+          <search></search>
+          <div class="card box-shadow mb-5">
+            <div class="card-header bg-light  py-3 px-3">
+              <div class="row">
+                <div class="col-12">
+                  <h6>Mijn opbrengsten</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+
             </div>
           </div>
         </div>
-        <hr>
-        <div class="card">
-          <div class="card-header bg-primary--blue text-white"><p><b>Mijn opbrengsten</b></p></div>
-          <div class="card-body">
-          </div>
-        </div>
       </div>
-
-  </div>
-  </div>
-
+    </div>
+  </section>
 </template>
 
 <script>

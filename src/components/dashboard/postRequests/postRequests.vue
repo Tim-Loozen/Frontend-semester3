@@ -1,45 +1,34 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
+import Search from "@/components/dashboard/search.vue";
 </script>
 
 <template>
-
-  <div class="container-fluid ">
+<section class="bg-dashboard">
+  <div class="container">
     <div class="row">
-      <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
-      </div>
-      <div class="col-10 px-5 py-5">
-        <div class="row py-1">
-          <div class="col-6">
-            <h2>Verzoeken</h2>
-          </div>
-          <div class="col-6 ">
-            <div class="text-end">
-              <a href="/dashboard/settings" class="btn btn-primary">Instellingen</a>
+      <div class="col-10 px-5 py-2">
+        <search></search>
+        <div class="card box-shadow mb-5">
+          <div class="card-header bg-light  py-3 px-3">
+            <div class="row">
+              <div class="col-12">
+                <h6>Verzoeken</h6>
+              </div>
             </div>
           </div>
-        </div>
-        <hr>
-        <div class="card">
-          <div class="card-header text-white bg-primary--blue">
-            <p><b>verzoeken</b></p>
-          </div>
           <div class="card-body">
-            <nav class="navbar navbar-light bg-light">
-              <form class="form-inline">
-                <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-              </form>
-            </nav>
+            <div class="responsiveTable">
             <table class="table table-striped">
               <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Verzocht door</th>
-                <th scope="col">Route nummer</th>
-                <th scope="col">Beschrijving</th>
-                <th scope="col">Reageren</th>
-                <th scope="col">Status</th>
+                <th scope="col"><h6>#</h6></th>
+                <th scope="col"><h6>Verzocht door</h6></th>
+                <th scope="col"><h6>Route nummer</h6></th>
+                <th scope="col"><h6>Beschrijving</h6></th>
+                <th scope="col"><h6>Reageren</h6></th>
+                <th scope="col"><h6>Status</h6></th>
                 <th scope="col"></th>
               </tr>
               </thead>
@@ -51,16 +40,26 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <td>{{ item.description }}</td>
                 <td></td>
                 <td>{{item.RequestStatus}}</td>
-                <td v-if="item.RequestStatus === 'Toegekend'">
-                  <button class="btn btn-success">Route starten</button></td>
+                <td>
+                  <button @click="showDialog" id="myBtn" v-if="item.RequestStatus === 'Toegekend'" class="btn btn-success">Route starten</button></td>
+                <dialog id="dialog" style="margin:auto;">
+                  <h6>Route starten</h6>
+                  <p>Weet je zeker dat je de route wilt starten?</p>
+                  <form @submit="" method="post">
+                    <button @click="startRoute()" type="submit">Ja</button>
+                    <button>Nee</button>
+                  </form>
+                </dialog>
               </tr>
               </tbody>
             </table>
+          </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 </template>
 <script>
 import api from "@/utils/api";
@@ -70,7 +69,18 @@ export default {
   name: "postRequests",
   data() {
     return {
-      data: []
+      data: [],
+      RouteStatus:[
+          routeStatus: ""
+      ]
+    }
+  },
+  methods:{
+    showDialog() {
+      document.getElementById('dialog').showModal();
+    },
+    startRoute(){
+      a.changePostRouteStatus()
     }
   },
   created() {

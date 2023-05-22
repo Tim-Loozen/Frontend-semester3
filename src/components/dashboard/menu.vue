@@ -1,69 +1,36 @@
+<script setup>
+import {defineComponent} from "vue";
+import UserItems from "@/components/dashboard/menu/userItems.vue";
+import PostOfficeItems from "@/components/dashboard/menu/postOfficeItems.vue";
+</script>
 <template>
   <Token></Token>
-  <div class="" v-if="user.postCompany != null || user.is_admin">
-    <h6 class="text-center bg-primary--blue py-2 text-white ">Post bedrijven</h6>
-    <ul class="dashboard-menu navbar-nav text-start border-top ">
+  <div class=" col-2  py-2 ">
+    <nav class="navbar  ">
+            <div class="" v-if="user.postCompany == null">
+        <user-items></user-items>
+      </div>
+      <div class="" v-if="user.postCompany != null">
+        <post-office-items></post-office-items>
+        <ul v-if="token === null" class=" d-flex navbar-nav navbar-nav-scroll">
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="/register">Registreren</a>
+          </li>
+        </ul>
+        <ul v-if="token != null" class=" navbar-nav navbar-nav-scroll">
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="/" onclick="localStorage.clear()">Uitloggen</a>
+          </li>
 
-      <li class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
-      </li>
-      <li class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/post-companies/routes/requests">Verzoeken</a>
-      </li>
-      <li class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/routes/create">Routes Aanmaken</a>
-      </li>
-      <li class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/earnings">Opbrengsten</a>
-      </li>
-      <li class="nav-item border-bottom">
-        <a class="nav-link" href="/dashboard/statistics">Statistieken</a>
-      </li>
-    </ul>
+        </ul>
+      </div>
+
+
+    </nav>
   </div>
-  <div class="" v-if="user.postCompany == null">
-  <h6 class="text-center bg-primary--blue py-2 text-white ">Zzp</h6>
-  <ul class="dashboard-menu navbar-nav text-start border-top ">
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
-    </li>
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/routes/requests">Mijn verzoeken</a>
-    </li>
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/earnings">Opbrengsten Overzicht</a>
-    </li>
-  </ul>
-  </div>
-  <div class="" v-if="user.is_admin">
-  <h6 class="text-center bg-primary--blue py-2 text-white ">beheerders</h6>
-  <ul class="dashboard-menu navbar-nav text-start border-top ">
-
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/routes">Routes Overzicht</a>
-    </li>
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/routes/create">Routes Aanmaken</a>
-    </li>
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/post-companies">Post bedrijven Overzicht</a>
-    </li>
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/post-companies/create">Post bedrijf aanmaken</a>
-    </li>
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/">Gebruikers Overzicht</a>
-    </li>
-  </ul>
-  </div>
-  <h6 class="text-center bg-primary--blue py-2 text-white ">Statistieken</h6>
-  <ul class="dashboard-menu navbar-nav text-start border-top ">
-
-    <li class="nav-item border-bottom">
-      <a class="nav-link" href="/dashboard/statistics">Statistieken</a>
-    </li>
-  </ul>
-
 </template>
 
 <script>
@@ -90,7 +57,7 @@ export default {
 
   data() {
     const user = this.parseJwt(localStorage.getItem('token'));
-    return {user: user}
+    return {user: user, token: localStorage.getItem('token')}
   },
 
 }

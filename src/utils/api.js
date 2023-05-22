@@ -100,7 +100,6 @@ class api {
 
 
 
-
     getPostCompanies() {
         return this.request.get(`/post_office`)
     }

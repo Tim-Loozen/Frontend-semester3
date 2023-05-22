@@ -1,4 +1,9 @@
+<script setup>
+
+import Navbar from "@/components/general/navbar.vue";
+</script>
 <template>
+  <navbar></navbar>
   <section class="header">
     <div class="container-fluid">
       <div class="row">

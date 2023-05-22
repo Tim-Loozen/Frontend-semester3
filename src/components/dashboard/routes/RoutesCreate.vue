@@ -1,21 +1,25 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
+import Search from "@/components/dashboard/search.vue";
 
 
 </script>
 
 <template>
 
-  <section class="">
-    <div class="container-fluid">
+  <section class="bg-dashboard">
+    <div class="container">
       <div class="row">
-        <div class="col-2 bg-light">
-          <menuDashboard></menuDashboard>
-        </div>
-        <div class="col-10 px-5 py-5">
-          <div class="card">
-            <div class="card-header bg-primary--blue">
-              <p class="text-white"><b>Route toevoegen</b></p>
+        <menuDashboard></menuDashboard>
+        <div class="col-10 px-5 py-2">
+          <search></search>
+          <div class="card box-shadow mb-5">
+            <div class="card-header bg-light  py-3 px-3">
+              <div class="row">
+                <div class="col-12">
+                  <h6>Route toevoegen</h6>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               <div v-if="success" class="alert alert-success" role="alert">
@@ -23,41 +27,37 @@ import menuDashboard from "@/components/dashboard/menu.vue";
               </div>
               <form class="" @submit="postData" method="POST">
                 <div class="row ">
-                  <div class="form-group col-md-6">
-                    <label for="">Route afstand</label>
+                  <div class="form-group col-md-6 my-1">
+                    <label for=""><h6>Route afstand</h6></label>
                     <input v-model="data.distance" type="text" class="form-control" id="distance" placeholder="">
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="">Tijdsduur</label>
+                  <div class="form-group col-md-6 my-1">
+                    <label for=""><h6>Tijdsduur</h6></label>
                     <input v-model="data.time" type="text" class="form-control" id="time" placeholder="">
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="">Start punt</label>
+                  <div class="form-group col-md-6 my-1">
+                    <label for=""><h6>Start punt</h6></label>
                     <input v-model="data.startpoint" type="text" class="form-control" id="start" placeholder="">
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="">Eindpunt</label>
+                  <div class="form-group col-md-6 my-1">
+                    <label for=""><h6>Eindpunt</h6></label>
                     <input v-model="data.endpoint" type="text" class="form-control" id="end" placeholder="">
                   </div>
                 </div>
-                <div class="input-group mb-3">
-                  <label class="d-block w-100 text-start" for="">Google maps</label>
-                  <input class="" type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-                <div class="form-group">
-                  <label for="">Obrengst</label>
+                <div class="form-group my-1">
+                  <label for=""><h6>Obrengst</h6></label>
                   <input v-model="data.earnings" type="text" class="form-control" id="compensation" placeholder="">
                 </div>
-                <div class="form-group">
-                  <label for="">Description</label>
+                <div class="form-group my-1">
+                  <label for=""><h6>Description</h6></label>
                   <textarea v-model="data.description" type="text" class="form-control" id="description" placeholder="some information about this route...."></textarea>
                 </div>
-
-
-                <button type="submit" class="btn btn-primary my-2">Route aanmaken
+              <div class="my-4">
+                <button type="submit" class="btn btn-primary ">Route aanmaken
                 </button>
+              </div>
               </form>
             </div>
           </div>

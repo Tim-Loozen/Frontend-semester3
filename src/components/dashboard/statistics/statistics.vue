@@ -14,75 +14,145 @@ import {
   LineElement,
   RadialLinearScale
 } from 'chart.js'
+import Search from "@/components/dashboard/search.vue";
 </script>
 <template>
-  <div class="container-fluid ">
-    <div class="row">
-      <div class="col-2 bg-light">
+  <section class="bg-dashboard">
+    <div class="container">
+      <div class="row">
         <menuDashboard></menuDashboard>
-      </div>
-      <div class="col-10 px-5 py-5">
-        <div class="row py-1">
-          <div class="col-6">
-            <h2>Statistieken</h2>
-          </div>
-          <div class="col-6 ">
-            <div class="text-end">
-              <a href="/dashboard/settings" class="btn btn-primary">Instellingen</a>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="card">
-          <div class="card-header bg-primary--blue text-white"><p><b>Mijn statistieken</b></p></div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4">
-                <div class="row statistics1">
-                  <div class="col-12">
-                    <b>Inkomsten deze week</b>
+        <div class="col-10 px-5 py-2">
+          <search></search>
+
+
+          <div class="row mb-4">
+            <div class="col-12">
+              <div class="card box-shadow">
+                <div class="card-header bg-light  py-3 px-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6>Mijn statistieken</h6>
+                    </div>
                   </div>
-                  <div class="col-12 statistics2">
-                    <b>€ 320,85</b>
+                </div>
+                <div class="card-body">
+                  <div class=" statistics1">
+                    <b>Inkomsten deze week</b>
+                    <div class="statistics2">
+                      <b>€ 320,85</b>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-4">
-                <Bar
-                    id="my-chart-id"
-                    :options="chartOptions"
-                    :data="verdiend_week"
-                />
-              </div>
-              <div class="col-4">
-                <Scatter
-                    id="my-chart-id"
-                    :options="chartOptions"
-                    :data="mixed"
-                />
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-6">
+              <div class="card box-shadow">
+                <div class="card-header bg-light  py-3 px-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6>Mijn statistieken</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <Bar
+                      id="my-chart-id"
+                      :options="chartOptions"
+                      :data="verdiend_week"
+                  />
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-6">
-                <PolarArea
-                    id="my-chart-id"
-                    :options="chartOptions"
-                    :data="polar"
-                />
+            <div class="col-6">
+              <div class="card box-shadow">
+                <div class="card-header bg-light  py-3 px-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6>Mijn statistieken</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <Scatter
+                      id="my-chart-id"
+                      :options="chartOptions"
+                      :data="mixed"
+                  />
+
+                </div>
               </div>
-              <div class="col-6">
-                <Doughnut
-                    id="my-chart-id"
-                    :options="chartOptions"
-                    :data="gewerktvoor"
-                />
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-6">
+              <div class="card box-shadow">
+                <div class="card-header bg-light  py-3 px-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6>Mijn statistieken</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <Doughnut
+                      id="my-chart-id"
+                      :options="chartOptions"
+                      :data="gewerktvoor"
+                  />
+                </div>
+
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card box-shadow">
+                <div class="card-header bg-light  py-3 px-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6>Mijn statistieken</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <PolarArea
+                      id="my-chart-id"
+                      :options="chartOptions"
+                      :data="polar"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-12">
+              <div class="card box-shadow">
+                <div class="card-header bg-light  py-3 px-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6>Mijn statistieken</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <Scatter
+                      id="my-chart-id"
+                      :options="chartOptions"
+                      :data="mixed"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
-  </div>
+
+  </section>
 </template>
 
 <script>

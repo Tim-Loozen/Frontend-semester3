@@ -1,31 +1,42 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
+import Search from "@/components/dashboard/search.vue";
 </script>
 
 <template>
-  <div class="container-fluid ">
+  <section class="bg-dashboard">
+  <div class="container">
     <div class="row ">
-
-      <div class="col-2 bg-light">
-        <menuDashboard></menuDashboard>
-      </div>
-      <div class="col-10 px-3 py-5">
-        <div class="row py-1">
+      <menuDashboard></menuDashboard>
+      <div class="col-10  px-5 py-2">
+        <search></search>
+        <div class="row">
           <div class="col-6">
-            <h2>Dashboard</h2>
+            <div class="card box-shadow">
+              <div class="card-header ">
+                <h6>Routes</h6>
+              </div>
+              <div class="card-body">
+
+              </div>
+            </div>
           </div>
-          <div class="col-6 ">
-            <div class="text-end">
-              <a href="/dashboard/settings" class="btn btn-primary">Instellingen</a>
+          <div class="col-6">
+            <div class="card box-shadow">
+              <div class="card-header ">
+                <h6>Postbedrijven</h6>
+              </div>
+              <div class="card-body">
+
+              </div>
             </div>
           </div>
         </div>
-        <hr class="my-5">
-        <div class="row">
+        <div class="row my-4">
           <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-
+            <div class="card box-shadow">
+              <div class="card-header ">
+                <h6>Gebruikers</h6>
               </div>
               <div class="card-body">
 
@@ -36,8 +47,8 @@ import menuDashboard from "@/components/dashboard/menu.vue";
       </div>
     </div>
   </div>
+  </section>
 </template>
-
 
 
 <style scoped>

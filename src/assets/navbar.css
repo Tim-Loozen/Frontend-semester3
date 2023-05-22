@@ -1,0 +1,8 @@
+/*Menu*/
+.nav-link {
+    color: var(--menu--link--color) !important;
+    font-family: var(--font) !important;
+    font-weight: 600 !important;
+}
+
+
