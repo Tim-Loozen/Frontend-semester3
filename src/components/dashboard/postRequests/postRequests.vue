@@ -70,9 +70,6 @@ export default {
   data() {
     return {
       data: [],
-      RouteStatus:[
-          routeStatus: ""
-      ]
     }
   },
   methods:{
