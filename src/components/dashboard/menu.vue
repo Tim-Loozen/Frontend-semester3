@@ -23,12 +23,6 @@ import PostOfficeItems from "@/components/dashboard/menu/postOfficeItems.vue";
             <a class="nav-link" href="/register">Registreren</a>
           </li>
         </ul>
-        <ul v-if="token != null" class=" navbar-nav navbar-nav-scroll">
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="/" onclick="localStorage.clear()">Uitloggen</a>
-          </li>
-
-        </ul>
       </div>
 
 
