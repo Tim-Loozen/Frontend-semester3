@@ -11,7 +11,7 @@ export default {
   mounted() {
     if (localStorage.getItem('token') != null) {
       a.verifyToken().then((result) => {
-        console.log(result.data[0]);
+        console.log(result);
       }).catch((error) => {
         console.log(error);
       });

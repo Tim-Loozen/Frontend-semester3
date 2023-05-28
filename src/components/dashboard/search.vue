@@ -84,7 +84,7 @@
             <a class="dropdown-item" href="pages/user/profile.html">Profile &amp; account</a>
             <a class="dropdown-item" href="#!">Feedback</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="pages/user/settings.html">Settings</a>
+            <a class="dropdown-item" href="/dashboard/settings">Settings</a>
             <a class="dropdown-item" href="/" onclick="localStorage.clear()">Uitloggen</a>
           </div>
         </div>

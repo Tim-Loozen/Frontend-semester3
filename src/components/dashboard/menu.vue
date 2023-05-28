@@ -5,8 +5,11 @@ import PostOfficeItems from "@/components/dashboard/menu/postOfficeItems.vue";
 </script>
 <template>
   <Token></Token>
+
   <div class=" col-2  py-2 ">
+    <h6>{{user.firstname}}{{user.lastname}}</h6>
     <nav class="navbar  ">
+
             <div class="" v-if="user.postCompany == null">
         <user-items></user-items>
       </div>

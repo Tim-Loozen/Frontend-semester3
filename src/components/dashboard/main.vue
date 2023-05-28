@@ -9,6 +9,7 @@ import Search from "@/components/dashboard/search.vue";
     <div class="row ">
       <menuDashboard></menuDashboard>
       <div class="col-10  px-5 py-2">
+
         <search></search>
         <div class="row">
           <div class="col-6">
@@ -49,7 +50,9 @@ import Search from "@/components/dashboard/search.vue";
   </div>
   </section>
 </template>
+<script>
 
+</script>
 
 <style scoped>
 

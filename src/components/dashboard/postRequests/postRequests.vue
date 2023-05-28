@@ -71,7 +71,6 @@ export default {
     return {
       data: [],
       RouteStatus:[
-          routeStatus: ""
       ]
     }
   },

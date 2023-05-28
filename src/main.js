@@ -15,6 +15,7 @@ import '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import register from './components/authentication/register.vue';
 import login from './components/authentication/login.vue';
 import home from './components/pages/home.vue';
+import MFA from "@/components/authentication/MFA.vue";
 
 /*Dashboard*/
 import Dashboard from './components/dashboard/main.vue';
@@ -39,6 +40,7 @@ import PostCompaniesAccount from "@/components/dashboard/postCompanies/account/P
 
 const routes = [
     {path: '/', component: home },
+    {path: '/MFA', component: MFA },
     {path: '/dashboard/admin', component: admin},
     {path: '/login', component: login },
     {path: '/dashboard/routes/create', component: routeCreates},

@@ -61,7 +61,7 @@ import Search from "@/components/dashboard/search.vue";
                                 class="form-select"
                                 aria-label="Default select example">
                           <option selected value="">Status</option>
-                          <option value="Beschikbaar">Beschikbaar</option>
+                          <option value="active">Beschikbaar</option>
                           <option value="In onderhandeling">In onderhandeling</option>
                           <option value="Toegekend">Toekennen</option>
                           <option value="Niet toegekend">Niet toegekend</option>

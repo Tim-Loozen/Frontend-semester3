@@ -3,112 +3,169 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 
 </script>
 <template>
-
-  <div class="container-fluid ">
-    <div class="row">
-      <div class="col-2 bg-light">
-        <menuDashboard></menuDashboard>
-      </div>
-      <div class="col-10 px-5 py-5">
-        <div class="row py-1">
-          <div class="col-6">
-            <h2>Instellingen</h2>
-          </div>
+  <section class="bg-dashboard ">
+    <div class="container ">
+      <div class="row">
+        <div class="col-2">
+          <menuDashboard></menuDashboard>
         </div>
-        <hr>
-        <div class="row">
-          <div class="col-6">
-            <div class="card">
-              <div class="card-header bg-primary--blue">
-                <p class="text-white"><b>Instellingen</b></p>
-              </div>
-              <div class="card-body">
-                <h5 class="py-1">Algemeen</h5>
-                <hr>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="">Voornaam</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="">Achternaam</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="">E-mail</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="">Wachtwoord</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-                </div>
-                <h5 class="py-1">Adres</h5>
-                <hr>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="">Adres</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="">Stad</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
+        <div class="col-10 px-5 py-5">
 
+          <div class="row">
+            <div class="col-6">
+              <div class="card">
+                <div class="card-header ">
+                  <h6>Instellingen</h6>
                 </div>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="">Provincie</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="">Postcode</label>
-                    <input type="email" class="form-control" id="voornaam" placeholder="">
-                  </div>
-
+                <div class="card-body">
+                  <h5 class="py-1">Algemeen</h5>
+                  <hr>
                   <div class="row">
-                    <h5 class="py-1">Bedrijf</h5>
-                    <hr>
-                    <div class="form-group col-md-12">
-                      <label for="">Bedrijfsnaam</label>
+                    <div class="form-group col-md-6">
+                      <label for="">Voornaam</label>
                       <input type="email" class="form-control" id="voornaam" placeholder="">
                     </div>
-                    <div class="form-group col-md-12">
-                      <label for="">Kvk</label>
+                    <div class="form-group col-md-6">
+                      <label for="">Achternaam</label>
+                      <input type="email" class="form-control" id="voornaam" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">E-mail</label>
+                      <input type="email" class="form-control" id="voornaam" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">Wachtwoord</label>
                       <input type="email" class="form-control" id="voornaam" placeholder="">
                     </div>
                   </div>
+                  <h5 class="py-1">Adres</h5>
+                  <hr>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="">Adres</label>
+                      <input type="email" class="form-control" id="voornaam" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">Stad</label>
+                      <input type="email" class="form-control" id="voornaam" placeholder="">
+                    </div>
 
-                  <div class="py-2">
-                    <button type="button" class="btn btn-success">Opslaan</button>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="">Provincie</label>
+                      <input type="email" class="form-control" id="voornaam" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">Postcode</label>
+                      <input type="email" class="form-control" id="voornaam" placeholder="">
+                    </div>
+
+                    <div class="row">
+                      <h5 class="py-1">Bedrijf</h5>
+                      <hr>
+                      <div class="form-group col-md-12">
+                        <label for="">Bedrijfsnaam</label>
+                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label for="">Kvk</label>
+                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      </div>
+                    </div>
+                    <div class="py-2">
+                      <button type="button" class="btn btn-success">Opslaan</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-6">
-            <div class="card">
-              <div class="card-header bg-primary--blue">
-                <p class="text-white"><b>Profiel foto</b></p>
-              </div>
-              <div class="card-body">
-                <div class="text-center">
-                  <img src="/public/istockphoto-1337144146-612x612.jpg" width="50%" height="50%" alt="">
+            <div class="col-6">
+              <div class="card">
+                <div class="card-header ">
+                  <h6>Profiel foto</h6>
                 </div>
-                <button type="button" class="btn btn-success">Nieuwe foto</button>
+                <div class="card-body">
+                  <div class="text-center">
+                    <img src="/public/istockphoto-1337144146-612x612.jpg" width="50%" height="50%" alt="">
+                  </div>
+                  <button type="button" class="btn btn-success">Nieuwe foto</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row my-4">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h6>2 Factor auth</h6>
+                </div>
+                <div class="card-body">
+                  <button class="btn btn-primary" @click="enableMFa()">2fa aanzetten</button>
+                  <div class="" v-if="MfaEnabled">
+                    <div class="row my-5">
+                      <div class="col-6"><img :src="`${data[2]}`" alt="" style="height: 300px; width: 300px;"></div>
+                      <div class="col-6">
+                        <form  @submit="verifyMfa" action="post">
+                          <label class="form-group" for="">Code
+                            <input v-model="MFAVerify.input" type="text" class="form-control">
+                          </label>
+                          <button type="submit" class="btn btn-primary my-2">Versturen</button>
+                        </form>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
+  </section>
 </template>
 
 <script>
+import api from "@/utils/api";
+
+const a = new api();
 export default {
-  name: "settings"
+  name: "settings",
+  data() {
+    return {
+      MfaEnabled: false,
+      data: [],
+      MFAVerify: {
+        input: null,
+        key: null
+      }
+    }
+  },
+  methods:
+      {
+        enableMFa() {
+          a.GetMFaCreate().then(response => {
+            this.data = response.data
+            console.log(this.data);
+
+            if (response.data[0] === "MFa_enabled") {
+              this.MfaEnabled = true;
+              this.MFAVerify.key = response.data[1];
+            }
+
+          })
+        },
+        verifyMfa(e)
+        {
+          e.preventDefault();
+          a.postMFAVerify(this.MFAVerify).then(response => {
+            this.data = response.data
+            console.log(data);
+          })
+        }
+      }
 }
 </script>
 

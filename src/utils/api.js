@@ -98,6 +98,19 @@ class api {
         return this.request.post('/route-status', data, this.getConfig())
     }
 
+    GetMFaCreate()
+    {
+        return this.request.get(`/create-2fa`, this.getConfig())
+    }
+    postMFAVerify(data)
+    {
+        const payload = {
+            input: data.input,
+            key: data.key,
+        }
+
+        return this.request.post(`/verify-2fa`, payload ,this.getConfig())
+    }
 
 
     getPostCompanies() {

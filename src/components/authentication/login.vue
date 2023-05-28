@@ -43,23 +43,25 @@ export default {
   methods: {
     postData(e) {
       e.preventDefault();
-     a.login(this.posts).then((result) => {
+      a.login(this.posts).then((result) => {
         console.log(result.data[0]);
-        localStorage.setItem("token", result.data[0]);
-        if(localStorage.getItem("token") === "User is not logged in")
-        {
-          window.location.href = '/login'
-        }else {
-          window.location.href = '/dashboard'
+        if (result.data[2] === "MFA_enabled") {
+          localStorage.setItem("token", result.data[0]);
+          if (localStorage.getItem("token") !== "User is not logged in") {
+            window.location.href = '/MFA'
+          }
+        } else {
+          localStorage.setItem("token", result.data[0]);
+          if (localStorage.getItem("token") === "User is not logged in") {
+            window.location.href = '/login'
+          } else {
+            window.location.href = '/dashboard'
+          }
         }
-      }).catch((error) => {
-        console.log(error);
-      })
 
+      })
     }
   }
-
-
 }
 </script>
 <style scoped>
