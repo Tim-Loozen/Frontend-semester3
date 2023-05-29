@@ -15,7 +15,8 @@ class api {
     getConfig() {
         return {
             headers: {
-                "X-API-TOKEN": localStorage.getItem('token')
+                "X-API-TOKEN": localStorage.getItem('token'),
+                "Content-Type": "application/json"
             }
         }
     }
