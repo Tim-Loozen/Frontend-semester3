@@ -1,5 +1,5 @@
 <template>
- <footer class=" bg-primary--blue  py-2">
+ <footer class=" bg-primary--blue">
   <div class="text-center">
     <p class="text-white">© 2023 copyright</p>
   </div>

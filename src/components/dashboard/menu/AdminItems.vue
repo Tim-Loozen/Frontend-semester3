@@ -16,6 +16,9 @@
     <hr class="my-1">
     <li class="nav-item "><a class="nav-link" href="/dashboard/post-companies">Post bedrijven Overzicht</a></li>
     <li class="nav-item "> <a class="nav-link" href="/dashboard/post-companies/create">Post bedrijf aanmaken</a>    </li>
+    <li class="nav-item mt-1"><h5><b>Gebruikers</b></h5></li>
+    <hr class="my-1">
+    <li class="nav-item "><a class="nav-link" href="/dashboard/users">Overzicht</a></li>
   </ul>
 </template>
 

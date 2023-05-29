@@ -17,6 +17,9 @@ import login from './components/authentication/login.vue';
 import home from './components/pages/home.vue';
 import MFA from "@/components/authentication/MFA.vue";
 
+/*Users*/
+import Users from "@/components/dashboard/users/users.vue";
+
 /*Dashboard*/
 import Dashboard from './components/dashboard/main.vue';
 import settings from "@/components/dashboard/settings.vue";
@@ -37,6 +40,7 @@ import postCompanies from "@/components/dashboard/postCompanies/postCompanies.vu
 import createPostCompanies from "@/components/dashboard/postCompanies/postCompaniesCreate.vue";
 import createPostCompanyAccount from "@/components/dashboard/postCompanies/account/PostCompanyAccountCreate.vue";
 import PostCompaniesAccount from "@/components/dashboard/postCompanies/account/PostCompaniesAccount.vue";
+import User from "@/utils/user";
 
 const routes = [
     {path: '/', component: home },
@@ -46,6 +50,7 @@ const routes = [
     {path: '/dashboard/routes/create', component: routeCreates},
     {path: '/dashboard/route/:id', component: route, name: 'route' },
     {path: '/dashboard/routes', component: routesAll},
+    {path: '/dashboard/users', component: Users},
     {path: '/dashboard/routes/requests', component: RouteRequests},
     {path: '/dashboard/post-companies/routes/requests', component: PostRequestsCompany},
     {path: '/dashboard/settings', component: settings},

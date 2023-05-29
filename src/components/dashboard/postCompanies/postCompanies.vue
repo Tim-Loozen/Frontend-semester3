@@ -1,29 +1,18 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
+import Search from "@/components/dashboard/search.vue";
 
 </script>
 <template>
-
-  <div class="container-fluid ">
+<section class="bg-dashboard">
+  <div class="container">
     <div class="row">
-      <div class="col-2 bg-light">
         <menuDashboard></menuDashboard>
-      </div>
-      <div class="col-10 px-5 py-5">
-        <div class="row py-1">
-          <div class="col-6">
-            <h2>Post bedrijven</h2>
-          </div>
-          <div class="col-6 ">
-            <div class="text-end">
-              <a href="/dashboard/settings" class="btn btn-primary">Instellingen</a>
-            </div>
-          </div>
-        </div>
-        <hr>
+      <div class="col-10 px-5 py-2">
+        <search></search>
         <div class="card">
-          <div class="card-header text-white bg-primary--blue">
-            <p><b>Post bedrijven</b></p>
+          <div class="card-header ">
+            <h6>Post bedrijven</h6>
           </div>
           <div class="card-body">
             <table class="table table-striped">
@@ -32,6 +21,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <th scope="col">#</th>
                 <th scope="col">naam</th>
                 <th scope="col">kvk</th>
+                <th scope="col">Actie</th>
               </tr>
               </thead>
               <tbody>
@@ -40,9 +30,6 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                 <td>{{ item.name }}</td>
                 <td>{{item.kvk}}</td>
                 <td><router-link :to="{name: 'createPostCompanyAccount', params: {id: item.id}}"  class="btn btn-primary">Voeg account toe</router-link></td>
-                <td>
-
-                </td>
               </tr>
               </tbody>
             </table>
@@ -51,6 +38,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
       </div>
     </div>
   </div>
+</section>
 </template>
 
 <script>

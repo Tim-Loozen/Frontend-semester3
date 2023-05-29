@@ -2,6 +2,7 @@
 import {defineComponent} from "vue";
 import UserItems from "@/components/dashboard/menu/userItems.vue";
 import PostOfficeItems from "@/components/dashboard/menu/postOfficeItems.vue";
+import adminItems from "@/components/dashboard/menu/AdminItems.vue";
 </script>
 <template>
   <Token></Token>
@@ -10,11 +11,23 @@ import PostOfficeItems from "@/components/dashboard/menu/postOfficeItems.vue";
     <h6>{{user.firstname}}{{user.lastname}}</h6>
     <nav class="navbar  ">
 
-            <div class="" v-if="user.postCompany == null">
+            <div class="" v-if="user.postCompany === null && user.is_admin === false">
         <user-items></user-items>
       </div>
       <div class="" v-if="user.postCompany != null">
         <post-office-items></post-office-items>
+        <ul v-if="token === null" class=" d-flex navbar-nav navbar-nav-scroll">
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="/register">Registreren</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="" v-if="user.is_admin === true">
+        <adminItems></adminItems>
         <ul v-if="token === null" class=" d-flex navbar-nav navbar-nav-scroll">
           <li class="nav-item mx-2">
             <a class="nav-link" href="/login">Login</a>

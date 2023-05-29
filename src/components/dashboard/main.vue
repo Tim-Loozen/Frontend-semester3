@@ -1,6 +1,7 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
 import Search from "@/components/dashboard/search.vue";
+import Routes from "@/components/dashboard/routes/routes.vue";
 </script>
 
 <template>

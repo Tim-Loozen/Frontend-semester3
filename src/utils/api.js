@@ -138,7 +138,10 @@ class api {
     {
         return this.request.get('/statistics', this.getConfig())
     }
-
+    getUsers()
+    {
+        return this.request.get('/get-users', this.getConfig())
+    }
 
     verifyToken() {
       return  this.request.get("/verifyToken", this.getConfig());

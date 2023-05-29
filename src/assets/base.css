@@ -82,7 +82,9 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
 
 }
-
+footer{
+    height: 5vh;
+}
 .header {
     min-height: 20rem;
 }
@@ -183,4 +185,8 @@ img {
 /*Dashboard */
 .bg-dashboard {
     background-color: var(--bg--dashboard);
+}
+section.bg-dashboard
+{
+    height: 95vh;
 }

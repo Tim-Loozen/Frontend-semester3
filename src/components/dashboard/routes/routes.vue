@@ -4,7 +4,6 @@ import Search from "@/components/dashboard/search.vue";
 
 
 </script>
-
 <template >
   <section class="bg-dashboard">
   <div class="container">
@@ -14,13 +13,7 @@ import Search from "@/components/dashboard/search.vue";
         <search></search>
         <div class="card box-shadow mb-5">
           <div class="card-header bg-light  py-3 px-3">
-            <div class="row">
-              <div class="col-12">
                 <h6>Routes</h6>
-
-              </div>
-
-            </div>
           </div>
             <div class="card-body">
               <div class="responsiveTable">
@@ -63,7 +56,6 @@ import Search from "@/components/dashboard/search.vue";
 </template>
 
 <script>
-import axios from "axios";
 import api from "@/utils/api";
 
 const a = new api();
