@@ -76,8 +76,8 @@ import Search from "@/components/dashboard/search.vue";
                     </textarea>
                   </div>
                   <button type="submit">Ja</button>
-                  <button>Nee</button>
                 </form>
+            <button type="">Nee</button>
           </dialog>
         </div>
       </div>

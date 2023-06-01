@@ -18,9 +18,7 @@ import Search from "@/components/dashboard/search.vue";
                 Status is aangepast
               </div>
               <div class="card-header">
-                <div class="row">
                   <h6>Verzoeken</h6>
-                </div>
               </div>
               <div class="card-body">
                 <div class="responsiveTable">

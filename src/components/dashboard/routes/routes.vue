@@ -4,17 +4,17 @@ import Search from "@/components/dashboard/search.vue";
 
 
 </script>
-<template >
+<template>
   <section class="bg-dashboard">
-  <div class="container">
-    <div class="row">
-      <menuDashboard></menuDashboard>
-      <div class="col-10 px-5 py-2">
-        <search></search>
-        <div class="card box-shadow mb-5">
-          <div class="card-header bg-light  py-3 px-3">
-                <h6>Routes</h6>
-          </div>
+    <div class="container">
+      <div class="row">
+        <menuDashboard></menuDashboard>
+        <div class="col-10 px-5 py-2">
+          <search></search>
+          <div class="card box-shadow mb-5">
+            <div class="card-header bg-light  py-3 px-3">
+              <h6>Routes</h6>
+            </div>
             <div class="card-body">
               <div class="responsiveTable">
                 <table class="table table-striped bg-white">
@@ -32,17 +32,17 @@ import Search from "@/components/dashboard/search.vue";
                   </thead>
                   <tbody>
                   <tr id="app" v-for="item in data">
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.postOffice }}</td>
-                    <td>{{ item.distance }}</td>
-                    <td>{{ item.startpoint }}</td>
-                    <td>{{ item.endpoint }}</td>
-                    <td :class="`bg-${item.status}`"><span class="badge rounded-pill">{{ item.status }}</span></td>
-                    <td>{{ item.earnings }}</td>
-                    <td v-if="item.status !== 'Toegekend'">
-                      <router-link :to="{name: 'route', params: {id: item.id}}" class="btn btn-primary">Bekijk route
-                      </router-link>
-                    </td>
+                      <td v-if="item.status !== 'started'">{{ item.id }}</td>
+                      <td v-if="item.status !== 'started'">{{ item.postOffice }}</td>
+                      <td v-if="item.status !== 'started'">{{ item.distance }}</td>
+                      <td v-if="item.status !== 'started'">{{ item.startpoint }}</td>
+                      <td v-if="item.status !== 'started'">{{ item.endpoint }}</td>
+                      <td v-if="item.status !== 'started'" :class="`bg-${item.status}`"><span class="badge rounded-pill">{{ item.status }}</span></td>
+                      <td v-if="item.status !== 'started'">{{ item.earnings }}</td>
+                      <td v-if="item.status !== 'Toegekend' && item.status !== 'started'">
+                        <router-link :to="{name: 'route', params: {id: item.id}}" class="btn btn-primary">Bekijk route
+                        </router-link>
+                      </td>
                   </tr>
                   </tbody>
                 </table>

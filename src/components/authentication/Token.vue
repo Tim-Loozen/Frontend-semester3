@@ -8,7 +8,8 @@ import api from "@/utils/api";
 const a = new api();
 export default {
   name: "auth.vue",
-  mounted() {
+  created() {
+    console.log("test");
     if (localStorage.getItem('token') != null) {
       a.verifyToken().then((result) => {
         console.log(result);

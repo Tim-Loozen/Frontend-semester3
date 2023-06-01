@@ -1,14 +1,14 @@
 <script setup>
-import {defineComponent} from "vue";
+import Token from "@/components/authentication/Token.vue";
 import UserItems from "@/components/dashboard/menu/userItems.vue";
 import PostOfficeItems from "@/components/dashboard/menu/postOfficeItems.vue";
 import adminItems from "@/components/dashboard/menu/AdminItems.vue";
 </script>
 <template>
-  <Token></Token>
+<Token></Token>
 
-  <div class=" col-2  py-2 ">
-    <h6>{{user.firstname}}{{user.lastname}}</h6>
+  <div v-if="user != null" class=" col-2  py-2 ">
+<!--    <h6>{{user.firstname}}{{user.lastname}}</h6>-->
     <nav class="navbar  ">
 
             <div class="" v-if="user.postCompany === null && user.is_admin === false">
@@ -44,7 +44,7 @@ import adminItems from "@/components/dashboard/menu/AdminItems.vue";
 </template>
 
 <script>
-import Token from "@/components/authentication/Token.vue";
+
 
 export default {
   name: "menu",

@@ -10,7 +10,7 @@ import Search from "@/components/dashboard/search.vue";
         <menuDashboard></menuDashboard>
       <div class="col-10 px-5 py-2">
         <search></search>
-        <div class="card">
+        <div class="card box-shadow">
           <div class="card-header ">
             <h6>Post bedrijven</h6>
           </div>
