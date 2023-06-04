@@ -5,12 +5,54 @@ class chartUtil {
 
     dataset;
 
-    constructor(dataset) {
+    constructor() {
+
+    }
+
+    setDataSet(dataset) {
         this.dataset = dataset;
+        console.log(this.dataset);
+    }
+
+    Range($value) {
+
+        let currentDate = new Date();
+        let startDate = new Date();
+        let endDate = new Date();
+
+        const rangeValue = 1;
+
+
+        switch ($value) {
+            case "day":
+                startDate.setDate(currentDate.getDate() - rangeValue);
+                break;
+            case "week":
+                startDate.setDate(currentDate.getDate() - (rangeValue * 7));
+                break;
+            case "month":
+                startDate.setMonth(currentDate.getMonth() - rangeValue);
+                break;
+            case "year":
+                startDate.setFullYear(currentDate.getFullYear() - rangeValue);
+                //startDate.toLocaleDateString
+
+                break;
+        }
+
+        const filteredDates = this.dataset.filter(item => {
+            const itemDate = new Date(item.routeDate.date);
+
+            return itemDate >= startDate && itemDate <= endDate;
+        });
+
+        console.log(filteredDates);
+        return filteredDates;
+
     }
 
 
-    calculateTotal($value) {
+    calculateTotal($value, $range) {
         let sum = 0;
         for (const val of this.dataset) {
             let total = val[$value];
@@ -39,9 +81,9 @@ class chartUtil {
 
     PostOfficePrecantage() {
 
-         var postOfficeArray = [];
+        var postOfficeArray = [];
         for (const val of this.dataset) {
-        postOfficeArray.push(val["postOffice"]);
+            postOfficeArray.push(val["postOffice"]);
         }
         console.log(postOfficeArray);
 
@@ -49,25 +91,23 @@ class chartUtil {
         const uniqueItems = [...new Set(postOfficeArray)]
         uniqueItems.forEach(currColor => {
             const numItems = postOfficeArray.filter(color => color === currColor)
-            const percentage  = `PostCompany ${currColor} represents ${numItems.length * 100 / totalItems}%`
+            const percentage = `PostCompany ${currColor} represents ${numItems.length * 100 / totalItems}%`
             console.log(percentage);
             return percentage;
         })
 
     }
 
-    MostValubaleRoute()
-    {
+    MostValubaleRoute() {
         //uitrekenen welke route het meeste per uur verdient
         //gemiddelde per uur berkenen * aantal uur hoelang ik over die route heb gedaan
-        for (const val of this.dataset)
-        {
-           const HoursForEachRoute = this.timeConvert(val["Minutes"]);
-           const avarageRoute = this.EarnedPerHour(HoursForEachRoute, val["earnings"]);
-           const TotalEarningsThisRoute = HoursForEachRoute * avarageRoute;
-           console.log(TotalEarningsThisRoute)
+        for (const val of this.dataset) {
+            const HoursForEachRoute = this.timeConvert(val["Minutes"]);
+            const avarageRoute = this.EarnedPerHour(HoursForEachRoute, val["earnings"]);
+            const TotalEarningsThisRoute = HoursForEachRoute * avarageRoute;
+            console.log(TotalEarningsThisRoute)
         }
-            return TotalEarningsThisRoute;
+        return TotalEarningsThisRoute;
     }
 
 }

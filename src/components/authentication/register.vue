@@ -1,4 +1,5 @@
 <template>
+  <navbar></navbar>
   <section class="py-5">
     <div class="container">
       <div class="row">
@@ -74,9 +75,11 @@
 
 import axios, {Axios} from "axios";
 import api from "@/utils/api";
+import Navbar from "@/components/general/navbar.vue";
 const  a = new api();
 export default {
   name: "register",
+  components: {Navbar},
   data() {
     return {
       success: false,

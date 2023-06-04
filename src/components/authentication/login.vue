@@ -1,5 +1,6 @@
 <template>
   <section>
+    <navbar></navbar>
     <div class="container">
       <div class="row">
         <div class="offset-3 col-6 my-5">
@@ -28,10 +29,12 @@
 
 import axios, {Axios} from "axios";
 import api from "@/utils/api";
+import Navbar from "@/components/general/navbar.vue";
 
 const a = new api();
 export default {
   name: "login",
+  components: {Navbar},
   data() {
     return {
       posts: {

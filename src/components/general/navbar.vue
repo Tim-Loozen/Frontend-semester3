@@ -1,6 +1,10 @@
 <template>
-  <nav class="navbar">
-    <ul v-if="token === null" class=" navbar-nav navbar-nav-scroll">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 ">
+    <div class="container">
+    <ul v-if="token === null" class=" navbar-nav navbar-nav-scroll text-center">
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="/">Home</a>
+      </li>
       <li class="nav-item mx-2">
         <a class="nav-link" href="/login">Login</a>
       </li>
@@ -10,10 +14,12 @@
     </ul>
     <ul v-if="token != null" class=" navbar-nav navbar-nav-scroll">
       <li class="nav-item mx-2">
-        <a class="nav-link" href="/" onclick="localStorage.clear()">Uitloggen</a>
+        <a class="nav-link" href="/dashboard">Dashboard</a>
       </li>
     </ul>
+    </div>
   </nav>
+
 </template>
 
 <script>

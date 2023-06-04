@@ -1,6 +1,7 @@
 <script setup>
 import menuDashboard from "@/components/dashboard/menu.vue";
 import {Bar, Doughnut, Line, Scatter, PolarArea} from 'vue-chartjs'
+
 import {
   Chart as ChartJS,
   Title,
@@ -27,6 +28,16 @@ import Search from "@/components/dashboard/search.vue";
 
           <div class="row mb-4">
             <div class="col-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="filter-select">Kies een weergave</label>
+                </div>
+                <select id="filter-select" class="custom-select" v-model="selectedValue" @change="getRange()">
+                  <option value="week">Week</option>
+                  <option value="month" selected>Month</option>
+                  <option value="year">Year</option>
+                </select>
+              </div>
               <div class="card box-shadow">
                 <div class="card-header bg-light  py-3 px-3">
                   <div class="row">
@@ -39,7 +50,7 @@ import Search from "@/components/dashboard/search.vue";
                   <div class=" statistics1">
                     <b>Inkomsten deze week</b>
                     <div class="statistics2">
-                      <b>€ 320,85</b>
+                      <b>€ {{ totalEarnings.toFixed(2).replace('.', ',') }}</b>
                     </div>
                   </div>
                 </div>
@@ -127,26 +138,7 @@ import Search from "@/components/dashboard/search.vue";
             </div>
           </div>
 
-          <div class="row my-4">
-            <div class="col-12">
-              <div class="card box-shadow">
-                <div class="card-header bg-light  py-3 px-3">
-                  <div class="row">
-                    <div class="col-12">
-                      <h6>Mijn statistieken</h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <Scatter
-                      id="my-chart-id"
-                      :options="chartOptions"
-                      :data="mixed"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
       </div>
@@ -159,26 +151,34 @@ import Search from "@/components/dashboard/search.vue";
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement, PointElement, LineElement, RadialLinearScale)
 import api from "@/utils/api";
 import chartUtil from "@/utils/chartUtil";
+import moment from "moment/moment";
 
+
+const ch = new chartUtil();
 const a = new api();
 
 
 export default {
   name: "statistics",
   components: {Bar, Doughnut},
+
   data() {
     return {
+      selectedValue: null,
       responseData: null,
+      totalEarnings: 0,
+
       verdiend_week: {
-        labels: ['Week 12', 'Week 13', 'Week 14', 'Week 15'],
+        type: 'bar',
         datasets: [
           {
-            label: 'Verdient',
+            label: 'Value',
             backgroundColor: '#144798',
             data: [5, 10, 15],
           }
         ]
       },
+
       huizenperkm: {
         labels: ['Route 1', 'Route 2', 'Route 3'],
         datasets: [
@@ -227,22 +227,132 @@ export default {
       },
       chartOptions: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       }
     }
   },
   created() {
     a.getDashboardInformation().then(response => {
       this.responseData = response.data[0]
-      const ch = new chartUtil(this.responseData);
-      const totalEarnings = ch.calculateTotal("earnings");
-      const totalMinutes = ch.calculateTotal("Minutes")
-      const totalHours = ch.timeConvert(totalMinutes);
-      ch.EarnedPerHour(totalHours, totalEarnings);
-      ch.PostOfficePrecantage();
-      ch.MostValubaleRoute();
+      ch.setDataSet(this.responseData);
+      ch.calculateTotal("earnings");
+      let filteredData = ch.Range('month');
+      this.changeStats(filteredData);
     })
+  },
+  methods: {
+    getRange() {
+      this.changeStats(ch.Range(this.selectedValue));
+    },
+
+    changeStats(filteredData) {
+      this.totalEarnings = 0;
+
+      let postCompanies = [];
+      let routeEarnings = [];
+      let routeEarningsWeek = [];
+      let routeLabels = [];
+      let routeDate = [];
+      let labels = [];
+      let data = [];
+
+      for (let i = 0; i < filteredData.length; i++) {
+        this.totalEarnings += filteredData[i].earnings;
+        routeDate.push(filteredData[i].routeDate.date)
+        routeEarningsWeek.push(filteredData[i].earnings)
+        if (i < 10) {
+          routeLabels.push(filteredData[i].route);
+          routeEarnings.push(filteredData[i].earnings)
+        }
+        postCompanies.push(filteredData[i].postOffice)
+      }
+
+      labels = [...new Set(postCompanies)];
+
+      for (let i = 0; i < postCompanies.length; i++) {
+        for (let j = 0; j < labels.length; j++) {
+          if (postCompanies[i] === labels[j]) {
+            if (data[j] === undefined) {
+              data[j] = 1;
+            } else {
+              data[j]++;
+            }
+          }
+        }
+      }
+
+      let chartdata = [];
+      for (let i = 0; i < data.length; i++) {
+        chartdata.push(data[i]);
+      }
+
+      this.gewerktvoor = {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Gewerkt voor',
+            data: chartdata,
+            backgroundColor: ['#14479899', '#e30b1299', '#2c863299']
+          }
+        ]
+      };
+
+      this.polar = {
+        labels: routeLabels,
+        datasets: [
+          {
+            label: 'Verdienst aan deze route',
+            data: routeEarnings,
+            backgroundColor: ['#e30b1299', '#14479899', '#2c863299'],
+            xAxes: [{
+              type: 'time',
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 20
+              }
+            }]
+          }
+        ]
+      };
+
+
+      var BarchartData = routeDate.reduce(function (acc, curr, index) {
+        var week = moment(curr).isoWeek();
+        if (acc.weeks.includes(week)) {
+          var weekIndex = acc.weeks.indexOf(week);
+          acc.routeEarningsWeek[weekIndex] += routeEarningsWeek[index];
+        } else {
+          acc.weeks.push(week);
+          acc.routeEarningsWeek.push(routeEarningsWeek[index]);
+        }
+        return acc;
+      }, { weeks: [], routeEarningsWeek: [] });
+
+
+      BarchartData.weeks.sort(function (a, b) {
+        return a - b;
+      });
+      console.log(BarchartData.routeEarningsWeek);
+
+      this.verdiend_week = {
+        type: 'bar', // Set chart type to bar
+        labels: BarchartData.weeks.map(function (week) {
+          return 'Week ' + week;
+        }),
+        datasets: [{
+          label: 'Value',
+          data: BarchartData.routeEarningsWeek,
+          backgroundColor: 'rgba(0, 0, 255, 0.2)',
+          borderColor: 'blue',
+          borderWidth: 1,
+        }]
+
+      }
+
+    },
+
   }
+
 }
 
 

@@ -33,6 +33,7 @@ import earnings from "@/components/dashboard/earnings/earnings.vue";
 import statistics from "@/components/dashboard/statistics/statistics.vue";
 import RouteRequests from "@/components/dashboard/postRequests/postRequests.vue";
 import PostRequestsCompany from "@/components/dashboard/postRequests/postRequestsCompany.vue";
+import history from "@/components/dashboard/routes/history.vue";
 /*Departs*/
 
 /*Post office */
@@ -50,6 +51,7 @@ const routes = [
     {path: '/dashboard/routes/create', component: routeCreates},
     {path: '/dashboard/route/:id', component: route, name: 'route' },
     {path: '/dashboard/routes', component: routesAll},
+    {path: '/dashboard/routes/history', component: history},
     {path: '/dashboard/users', component: Users},
     {path: '/dashboard/routes/requests', component: RouteRequests},
     {path: '/dashboard/post-companies/routes/requests', component: PostRequestsCompany},

@@ -13,7 +13,7 @@ import Search from "@/components/dashboard/search.vue";
           <search></search>
           <div class="card box-shadow mb-5">
             <div class="card-header bg-light  py-3 px-3">
-              <h6>Routes</h6>
+              <h6>Routes history</h6>
             </div>
             <div class="card-body">
               <div class="responsiveTable">
@@ -27,22 +27,17 @@ import Search from "@/components/dashboard/search.vue";
                     <th scope="col"><h6>eindpunt</h6></th>
                     <th scope="col"><h6>Status</h6></th>
                     <th scope="col"><h6>Opbrengst</h6></th>
-                    <th></th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr id="app" v-for="item in data">
-                      <td>{{ item.id }}</td>
-                      <td>{{ item.postOffice }}</td>
-                      <td>{{ item.distance }}</td>
-                      <td>{{ item.startpoint }}</td>
-                      <td>{{ item.endpoint }}</td>
-                      <td :class="`bg-${item.status}`"><span class="badge rounded-pill">{{ item.status }}</span></td>
-                      <td>{{ item.earnings }}</td>
-                      <td v-if="item.status !== 'Toegekend' && item.status !== 'started'">
-                        <router-link :to="{name: 'route', params: {id: item.id}}" class="btn btn-primary">Bekijk route
-                        </router-link>
-                      </td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.postOffice }}</td>
+                    <td>{{ item.distance }}</td>
+                    <td>{{ item.startpoint }}</td>
+                    <td>{{ item.endpoint }}</td>
+                    <td>{{ item.status }}</td>
+                    <td>{{ item.earnings }}</td>
                   </tr>
                   </tbody>
                 </table>
@@ -60,7 +55,7 @@ import api from "@/utils/api";
 
 const a = new api();
 export default {
-  name: "routes",
+  name: "history",
   data() {
     return {
       data: []
@@ -68,7 +63,7 @@ export default {
   },
   created() {
     a.getPostRoutes().then(response => {
-      this.data = response.data[0]
+      this.data = response.data[1]
       console.log(this.data)
     })
   }

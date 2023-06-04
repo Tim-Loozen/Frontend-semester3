@@ -94,12 +94,12 @@ footer{
 }
 
 .btn-primary {
-    background-color: #144698 !important;
-    border: #144698 solid 1px;
+    background-color: #59789a !important;
+    border: #59789a solid 1px !important;
 }
 
 .bg-primary--blue {
-    background-color: #144698 !important;
+    background-color: #59789a !important;
 }
 
 img {
@@ -189,4 +189,8 @@ img {
 section.bg-dashboard
 {
     height: 95vh;
+}
+.header img{
+    height: 400px;
+    object-fit: cover;
 }
