@@ -29,33 +29,36 @@ import Search from "@/components/dashboard/search.vue";
                     <th scope="col"><h6>Beschrijving</h6></th>
                     <th scope="col"><h6>Reageren</h6></th>
                     <th scope="col"><h6>Status</h6></th>
-                    <th scope="col"></th>
+                    <th scope="col"><h6>Knop</h6></th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr id="app" v-for="(item, index) in data">
+                  <tr id="app" v-for="(item, index) in data" :key="index">
                     <td>{{ item.requestId }}</td>
                     <td>{{ item.username }}</td>
                     <td><a>{{ item.route }}</a></td>
                     <td>{{ item.description }}</td>
                     <td></td>
                     <td :class="`bg-${item.RequestStatus}`">{{ item.RequestStatus }}</td>
-                    <td>
-                      <button @click="showDialog" id="myBtn" v-if="item.RequestStatus === 'Toegekend'"
+                    <td v-if="item.RequestStatus === 'Toegekend'">
+                      <button @click="showDialog(index)" id="myBtn"
                               class="btn btn-success">Route starten
                       </button>
-                      <button @click="endRoute(index)" id="myBtn" v-if="item.RequestStatus === 'started'"
+                      <dialog id="dialog" style="margin:auto;">
+                        <h6>Route starten</h6>
+                        <p>Weet je zeker dat je de route wilt starten?</p>
+                        <form @submit.prevent="startRoute(index)" method="POST">
+                          <button type="submit">Ja</button>
+                          <button>Nee</button>
+                        </form>
+                      </dialog>
+                    </td>
+                    <td v-if="item.RequestStatus === 'started'">
+                      <button @click="endRoute(index)" id=""
                               class="btn btn-danger">Route Beëindigen
                       </button>
                     </td>
-                    <dialog id="dialog" style="margin:auto;">
-                      <h6>Route starten</h6>
-                      <p>Weet je zeker dat je de route wilt starten?</p>
-                      <form @submit.prevent="startRoute(index)" method="POST">
-                        <button type="submit">Ja</button>
-                        <button>Nee</button>
-                      </form>
-                    </dialog>
+
                   </tr>
                   </tbody>
                 </table>
@@ -81,18 +84,18 @@ export default {
     }
   },
   methods: {
-    showDialog() {
+    showDialog(index) {
+      console.log(index)
       document.getElementById('dialog').showModal();
     },
     startRoute(index) {
-        this.data[index].RequestStatus = "started";
-        console.log(this.data);
-        a.changePostRouteStatus(this.data);
-      },
-    endRoute(index)
-    {
+      console.log(index);
+      this.data[index].RequestStatus = "started";
+      console.log(this.data[index]);
+      a.changePostRouteStatus(this.data);
+    },
+    endRoute(index) {
       this.data[index].RequestStatus = "Done";
-      console.log(this.data);
       a.changePostRouteStatus(this.data);
 
     }
@@ -100,7 +103,6 @@ export default {
   created() {
     a.getRouteRequests().then(response => {
       this.data = response.data[0]
-      console.log(this.data)
     })
   }
 
