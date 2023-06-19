@@ -7,7 +7,7 @@ import adminItems from "@/components/dashboard/menu/AdminItems.vue";
 <template>
 <Token></Token>
 
-  <div v-if="user != null" class=" col-2  py-2 ">
+  <div v-if="user != null" class=" col-2 t  py-2 ">
 <!--    <h6>{{user.firstname}}{{user.lastname}}</h6>-->
     <nav class="navbar  ">
 

@@ -1,5 +1,5 @@
 <template>
-  <ul class="navbar-nav">
+  <ul class="navbar-nav t">
     <li class="nav-item mt-1"><h5><b>Overzicht</b></h5></li>
     <hr class="my-1">
     <li class="nav-item ms-1">  <a href="/dashboard" class="nav-link">Home</a></li>

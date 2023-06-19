@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 t ">
     <div class="container">
     <ul v-if="token === null" class=" navbar-nav navbar-nav-scroll text-center">
       <li class="nav-item mx-2">

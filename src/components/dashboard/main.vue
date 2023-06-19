@@ -6,7 +6,7 @@ import Routes from "@/components/dashboard/routes/routes.vue";
 </script>
 
 <template>
-  <section class="bg-dashboard">
+  <section class="bg-dashboard t">
   <div class="container">
     <div class="row ">
       <menuDashboard></menuDashboard>

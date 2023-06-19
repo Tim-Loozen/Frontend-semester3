@@ -4,7 +4,7 @@ import Search from "@/components/dashboard/search.vue";
 
 </script>
 <template>
-<section class="bg-dashboard">
+<section class="bg-dashboard t">
   <div class="container">
     <div class="row">
         <menuDashboard></menuDashboard>

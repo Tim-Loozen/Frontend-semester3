@@ -4,7 +4,7 @@ import Navbar from "@/components/general/navbar.vue";
 </script>
 <template>
   <navbar></navbar>
-  <section class="header">
+  <section class="header t">
     <img src="/public/pexels-artem-podrez-5025669.jpg" alt="">
   </section>
   <section class="py-5 text-start">

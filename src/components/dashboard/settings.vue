@@ -13,7 +13,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 
           <div class="row">
             <div class="col-6">
-              <div v-if="success" class="alert alert-success" role="alert">
+              <div v-if="success" class="alert alert-success t" role="alert">
                 Verzoek is verzonden
               </div>
               <div class="card">

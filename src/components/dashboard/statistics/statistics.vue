@@ -19,7 +19,7 @@ import Search from "@/components/dashboard/search.vue";
 </script>
 <template>
   <section class="bg-dashboard">
-    <div class="container">
+    <div class="container t">
       <div class="row">
         <menuDashboard></menuDashboard>
         <div class="col-10 px-5 py-2">

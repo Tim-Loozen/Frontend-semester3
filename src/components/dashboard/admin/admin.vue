@@ -3,12 +3,12 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 </script>
 <template>
   <section class="py-5">
-    <div class="container">
+    <div class="container t">
       <div class="row">
         <div class="col-3">
           <div class="card">
             <div class="card-header bg-primary--blue">
-              <p class="text-white"><b>Wijken</b></p>
+              <p class="text-white"><b>Wijken.</b></p>
             </div>
             <div class="card-body">
               <button type="button" class="btn btn-danger"> overzicht</button>
