@@ -33,11 +33,11 @@ import Search from "@/components/dashboard/search.vue";
                   <tr id="app" v-for="item in data">
                     <td>{{ item.id }}</td>
                     <td>{{ item.postOffice }}</td>
-                    <td>{{ item.distance }}</td>
+                    <td>{{ item.distance }}km</td>
                     <td>{{ item.startpoint }}</td>
                     <td>{{ item.endpoint }}</td>
                     <td>{{ item.status }}</td>
-                    <td>{{ item.earnings }}</td>
+                    <td>{{ item.earnings }},-</td>
                   </tr>
                   </tbody>
                 </table>
