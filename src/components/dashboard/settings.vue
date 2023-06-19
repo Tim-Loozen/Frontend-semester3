@@ -18,7 +18,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
               </div>
               <div class="card">
                 <div class="card-header ">
-                  <h6>Instellingen</h6>
+                  <h6>Instellingen</h6>+
                 </div>
                 <div class="card-body" id="app" v-for="item in userData">
                   <form  @submit="" action="" METHOD="post">
