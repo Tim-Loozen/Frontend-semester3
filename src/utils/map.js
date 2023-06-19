@@ -13,6 +13,5 @@ function drawRoute() {
         const { routes } = e;
         L.geoJSON(routes[0].toGeoJSON()).addTo(this.map);
     });
-}
-}
+
 };
