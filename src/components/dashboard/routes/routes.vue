@@ -34,11 +34,11 @@ import Search from "@/components/dashboard/search.vue";
                   <tr id="app" v-for="item in data">
                       <td>{{ item.id }}</td>
                       <td>{{ item.postOffice }}</td>
-                      <td>{{ item.distance }}</td>
+                      <td>{{ item.distance }}km</td>
                       <td>{{ item.startpoint }}</td>
                       <td>{{ item.endpoint }}</td>
                       <td :class="`bg-${item.status}`"><span class="badge rounded-pill">{{ item.status }}</span></td>
-                      <td>{{ item.earnings }}</td>
+                      <td>{{ item.earnings }},-</td>
                       <td v-if="item.status !== 'Toegekend' && item.status !== 'started'">
                         <router-link :to="{name: 'route', params: {id: item.id}}" class="btn btn-primary">Bekijk route
                         </router-link>

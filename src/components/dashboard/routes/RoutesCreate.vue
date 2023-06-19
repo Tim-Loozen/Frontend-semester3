@@ -28,26 +28,26 @@ import Search from "@/components/dashboard/search.vue";
               <form class="" @submit="postData" method="POST">
                 <div class="row ">
                   <div class="form-group col-md-6 my-1">
-                    <label for=""><h6>Route afstand</h6></label>
+                    <label for=""><h6>Route afstand<small>(km)</small></h6></label>
                     <input v-model="data.distance" type="text" class="form-control" id="distance" placeholder="">
                   </div>
                   <div class="form-group col-md-6 my-1">
-                    <label for=""><h6>Tijdsduur</h6></label>
+                    <label for=""><h6>Tijdsduur<small>(minuten)</small></h6></label>
                     <input v-model="data.time" type="text" class="form-control" id="time" placeholder="">
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 my-1">
-                    <label for=""><h6>Start punt</h6></label>
+                    <label for=""><h6>Start punt<small>(stad of dorp)</small></h6></label>
                     <input v-model="data.startpoint" type="text" class="form-control" id="start" placeholder="">
                   </div>
                   <div class="form-group col-md-6 my-1">
-                    <label for=""><h6>Eindpunt</h6></label>
+                    <label for=""><h6>Eindpunt<small>(stad of dorp)</small></h6></label>
                     <input v-model="data.endpoint" type="text" class="form-control" id="end" placeholder="">
                   </div>
                 </div>
                 <div class="form-group my-1">
-                  <label for=""><h6>Obrengst</h6></label>
+                  <label for=""><h6>Obrengst<small>(euro's)</small></h6></label>
                   <input v-model="data.earnings" type="text" class="form-control" id="compensation" placeholder="">
                 </div>
                 <div class="form-group my-1">
