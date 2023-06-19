@@ -34,8 +34,8 @@ import Search from "@/components/dashboard/search.vue";
                 </div>
                 <select id="filter-select" class="custom-select" v-model="selectedValue" @change="getRange()">
                   <option value="week">Week</option>
-                  <option value="month" selected>Month</option>
-                  <option value="year">Year</option>
+                  <option value="month" selected>Maand</option>
+                  <option value="year">Jaar</option>
                 </select>
               </div>
               <div class="card box-shadow">
@@ -48,7 +48,7 @@ import Search from "@/components/dashboard/search.vue";
                 </div>
                 <div class="card-body">
                   <div class=" statistics1">
-                    <b>Inkomsten deze week</b>
+                    <b>Inkomsten</b>
                     <div class="statistics2">
                       <b>€ {{ totalEarnings.toFixed(2).replace('.', ',') }}</b>
                     </div>
