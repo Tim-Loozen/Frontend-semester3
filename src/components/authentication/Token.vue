@@ -1,5 +1,5 @@
 <template>
-  <div id="token"></div>
+  <div id="token" class="t"></div>
 </template>
 
 <script>
