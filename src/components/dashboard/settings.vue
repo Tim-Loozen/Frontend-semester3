@@ -13,71 +13,77 @@ import menuDashboard from "@/components/dashboard/menu.vue";
 
           <div class="row">
             <div class="col-6">
+              <div v-if="success" class="alert alert-success" role="alert">
+                Verzoek is verzonden
+              </div>
               <div class="card">
                 <div class="card-header ">
                   <h6>Instellingen</h6>
                 </div>
-                <div class="card-body">
-                  <h5 class="py-1">Algemeen</h5>
-                  <hr>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="">Voornaam</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="">Achternaam</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="">E-mail</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="">Wachtwoord</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-                  </div>
-                  <h5 class="py-1">Adres</h5>
-                  <hr>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="">Adres</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="">Stad</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="">Provincie</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="">Postcode</label>
-                      <input type="email" class="form-control" id="voornaam" placeholder="">
-                    </div>
-
+                <div class="card-body" id="app" v-for="item in userData">
+                  <form  @submit="UpdateUser" action="" METHOD="post">
+                    <h5 class="py-1">Algemeen</h5>
+                    <hr>
                     <div class="row">
-                      <h5 class="py-1">Bedrijf</h5>
-                      <hr>
-                      <div class="form-group col-md-12">
-                        <label for="">Bedrijfsnaam</label>
-                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      <div class="form-group col-md-6">
+                        <label for="">Voornaam</label>
+                        <input type="text" class="form-control" id="voornaam" v-model="item.firstname" :placeholder="item.firstname">
                       </div>
-                      <div class="form-group col-md-12">
-                        <label for="">Kvk</label>
+                      <div class="form-group col-md-6">
+                        <label for="">Achternaam</label>
+                        <input type="text" class="form-control" v-model="item.lastname" :placeholder="item.lastname">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="">E-mail</label>
+                        <input type="email" class="form-control" v-model="item.email" :placeholder="item.email">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Wachtwoord</label>
                         <input type="email" class="form-control" id="voornaam" placeholder="">
                       </div>
                     </div>
-                    <div class="py-2">
-                      <button type="button" class="btn btn-success">Opslaan</button>
+                    <h5 class="py-1">Adres</h5>
+                    <hr>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label for="">Adres</label>
+                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Stad</label>
+                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      </div>
+
                     </div>
-                  </div>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label for="">Provincie</label>
+                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Postcode</label>
+                        <input type="email" class="form-control" id="voornaam" placeholder="">
+                      </div>
+
+                      <div class="row">
+                        <h5 class="py-1">Bedrijf</h5>
+                        <hr>
+                        <div class="form-group col-md-12">
+                          <label for="">Bedrijfsnaam</label>
+                          <input type="email" class="form-control" id="voornaam" placeholder="">
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="">Kvk</label>
+                          <input type="email" class="form-control" id="voornaam" placeholder="">
+                        </div>
+                      </div>
+                      <div class="py-2">
+                        <button type="submit" class="btn btn-success">Opslaan</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
+
               </div>
             </div>
             <div class="col-6">
@@ -106,7 +112,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                     <div class="row my-5">
                       <div class="col-6"><img :src="`${data[2]}`" alt="" style="height: 300px; width: 300px;"></div>
                       <div class="col-6">
-                        <form  @submit="verifyMfa" action="post">
+                        <form @submit="verifyMfa" action="post">
                           <label class="form-group" for="">Code
                             <input v-model="MFAVerify.input" type="text" class="form-control">
                           </label>
@@ -136,15 +142,34 @@ export default {
   data() {
     return {
       MfaEnabled: false,
+      succes: false,
       data: [],
+      id: this.$route.params.id,
+      userData:[],
       MFAVerify: {
         input: null,
         key: null
       }
     }
   },
+  created() {
+    a.getUserinformation(this.id).then(response => {
+      this.userData = response.data
+      console.log(this.userData)
+    });
+  },
   methods:
       {
+        UpdateUser(e) {
+          e.preventDefault();
+          console.log(this.userData);
+          a.updateUser(this.id, this.userData).then(response => {
+            console.log(response.data);
+            if (response.dataset[0] === 'Userupdate_ok') {
+              this.succes = true;
+            }
+          });
+        },
         enableMFa() {
           a.GetMFaCreate().then(response => {
             this.data = response.data
@@ -157,8 +182,7 @@ export default {
 
           })
         },
-        verifyMfa(e)
-        {
+        verifyMfa(e) {
           e.preventDefault();
           a.postMFAVerify(this.MFAVerify).then(response => {
             this.data = response.data

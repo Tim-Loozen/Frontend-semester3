@@ -56,7 +56,7 @@ const routes = [
     {path: '/dashboard/users', component: Users},
     {path: '/dashboard/routes/requests', component: RouteRequests},
     {path: '/dashboard/post-companies/routes/requests', component: PostRequestsCompany},
-    {path: '/dashboard/settings', component: settings},
+    {path: '/dashboard/user/settings/:id', component: settings, name: 'settings'},
     {path: '/dashboard/earnings', component: earnings},
     {path: '/dashboard/statistics', component: statistics},
     {path: '/dashboard/post-companies', component: postCompanies},

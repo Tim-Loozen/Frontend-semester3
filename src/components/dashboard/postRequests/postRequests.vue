@@ -44,6 +44,9 @@ import Search from "@/components/dashboard/search.vue";
                       <button @click="showDialog(index)" id="myBtn"
                               class="btn btn-success">Route starten
                       </button>
+                      <button @click="cancelRoute(index)" id="myBtn"
+                              class="btn btn-danger">Cancel route
+                      </button>
                       <dialog id="dialog" style="margin:auto;">
                         <h6>Route starten</h6>
                         <p>Weet je zeker dat je de route wilt starten?</p>
@@ -58,7 +61,11 @@ import Search from "@/components/dashboard/search.vue";
                               class="btn btn-danger">Route Beëindigen
                       </button>
                     </td>
-
+                    <td v-if="item.RequestStatus === 'canceld'">
+                      <div
+                          class="alert-danger">Geanuleerd
+                      </div>
+                    </td>
                   </tr>
                   </tbody>
                 </table>
@@ -87,6 +94,12 @@ export default {
     showDialog(index) {
       console.log(index)
       document.getElementById('dialog').showModal();
+    },
+    cancelRoute(index) {
+      console.log(index);
+      this.data[index].RequestStatus = "canceld";
+      console.log(this.data[index]);
+      a.changePostRouteStatus(this.data);
     },
     startRoute(index) {
       console.log(index);

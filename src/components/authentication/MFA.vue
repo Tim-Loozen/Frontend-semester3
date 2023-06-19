@@ -2,7 +2,7 @@
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="offset-3 col-6 mt-4">
           <div class="card">
             <div class="card-header">
               <h6>MFA Code</h6>
@@ -13,8 +13,10 @@
                     <input type="text" v-model="MFAVerify.input" name="code" class="form-control" id="code"
                            placeholder="">
                     <button type="submit" class="btn btn-primary my-2">Versturen</button>
+                    <a href="/" class="mfa-link" onclick="localStorage.clear('token')">Uitloggen</a>
                   </div>
                 </form>
+
               </div>
             </div>
           </div>

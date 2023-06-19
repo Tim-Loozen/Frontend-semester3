@@ -194,3 +194,8 @@ section.bg-dashboard
     height: 400px;
     object-fit: cover;
 }
+.mfa-link{
+    float: right;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}

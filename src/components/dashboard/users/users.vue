@@ -40,7 +40,8 @@ import Search from "@/components/dashboard/search.vue";
                         Acties
                       </button>
                       <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="tel:">Bewerken</a></li>
+                        <router-link :to="{name: 'settings', params: {id: item.id}}" class="dropdown-item">Bewerken
+                        </router-link>
                         <li><a class="dropdown-item" href="tel:">Verwijderen</a></li>
                       </ul>
                     </td>

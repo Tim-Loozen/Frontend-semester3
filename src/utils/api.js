@@ -1,11 +1,12 @@
 import axios from "axios";
+import user from "@/utils/user";
 
 class api {
     request;
 
     constructor() {
         this.request = axios.create({
-            baseURL: 'http://fontys_semester3_api.test/',
+            baseURL: 'https://api-ppt.lutrasoft.nl',
             headers: {
                 'Content-type': 'application/json',
             },
@@ -112,7 +113,17 @@ class api {
 
         return this.request.post(`/verify-2fa`, payload ,this.getConfig())
     }
+    updateUser(id, userData)
+    {
+        userData.unshift(id)
+        console.log(userData)
 
+        return this.request.post(`/update-users`,userData, this.getConfig())
+    }
+
+    getUserinformation(id){
+        return this.request.get(`/edit-users/` + id, this.getConfig())
+    }
 
     getPostCompanies() {
         return this.request.get(`/post_office`)
