@@ -18,7 +18,7 @@ import register from '@/components/authentication/register.vue';
 import login from '@/components/authentication/login.vue';
 import home from '@/components/pages/home.vue';
 import MFA from "@/components/authentication/MFA.vue";
-
+import EnableMFA from "@/components/dashboard/enableMFA.vue";
 /*Users*/
 import Users from "@/components/dashboard/users/users.vue";
 
@@ -65,7 +65,8 @@ const routes = [
     {path: '/dashboard/post-companies/create', component: createPostCompanies},
     {path: '/dashboard/post-companies/account/create/:id', component: createPostCompanyAccount, name: 'createPostCompanyAccount'},
     {path: '/register', component: register },
-    {path: '/dashboard', component: Dashboard }
+    {path: '/dashboard', component: Dashboard },
+    {path: '/dashboard/personal/settings', component: EnableMFA}
 ];
 
 const router = createRouter({
