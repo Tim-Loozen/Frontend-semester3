@@ -22,7 +22,7 @@ import MFA from "@/components/authentication/MFA.vue";
 import Users from "@/components/dashboard/users/users.vue";
 
 /*Dashboard*/
-import Dashboard from './components/dashboard/main.vue';
+import Dashboard from '@/components/dashboard/main.vue';
 import settings from "@/components/dashboard/settings.vue";
 import admin from "@/components/dashboard/admin/admin.vue";
 
