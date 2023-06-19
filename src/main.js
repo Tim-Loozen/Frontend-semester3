@@ -15,7 +15,7 @@ import '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 /*General*/
 import register from '@/components/authentication/register.vue';
 import login from '@/components/authentication/login.vue';
-import home from '#/components/pages/home.vue';
+import home from '@/components/pages/home.vue';
 import MFA from "@/components/authentication/MFA.vue";
 
 /*Users*/
