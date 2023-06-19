@@ -21,7 +21,7 @@ import menuDashboard from "@/components/dashboard/menu.vue";
                   <h6>Instellingen</h6>
                 </div>
                 <div class="card-body" id="app" v-for="item in userData">
-                  <form  @submit="UpdateUser" action="" METHOD="post">
+                  <form  @submit="" action="" METHOD="post">
                     <h5 class="py-1">Algemeen</h5>
                     <hr>
                     <div class="row">
@@ -160,16 +160,6 @@ export default {
   },
   methods:
       {
-        UpdateUser(e) {
-          e.preventDefault();
-          console.log(this.userData);
-          a.updateUser(this.id, this.userData).then(response => {
-            console.log(response.data);
-            if (response.dataset[0] === 'Userupdate_ok') {
-              this.succes = true;
-            }
-          });
-        },
         enableMFa() {
           a.GetMFaCreate().then(response => {
             this.data = response.data
