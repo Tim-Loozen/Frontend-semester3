@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-12">
           <div class="text-center">
-            <h1>Registreren!</h1>
+            <h1>Registreren</h1>
             <hr>
             <div v-if="success" class="alert alert-success" role="alert">
               Registratie is succesvol
